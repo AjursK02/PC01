@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Logo } from './logo';
 import { MobileNav } from './mobile-nav';
@@ -15,17 +15,36 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const navItems = [
-  { name: 'Home', href: '/' },
+  // { name: 'Home', href: '/' },
+  
+  // { name: 'Our Process', href: '/#process' },
   { name: 'About', href: '/#about' },
-  { name: 'Our Process', href: '/#process' },
   { 
     name: 'Solutions', 
     dropdown: [
-      { name: 'For Suppliers', href: '/sell-scrap' },
-      { name: 'For Buyers', href: '/buy-scrap' },
+      { name: 'rPE', href: '/polyEthylene' },
+      { name: 'rPP', href: '/polyPropylene' },
+      { name: 'EPR and Plastic Credits', href: '/epr' },
+      { name: 'Recyclability Assessment', href: '/recyclabilityAssessment' },
     ]
   },
-  { name: 'EPR', href: '/#sustainability' },
+  // { 
+  //   name: 'Solutions', 
+  //   dropdown: [
+  //     { name: 'For Suppliers', href: '/sell-scrap' },
+  //     { name: 'For Buyers', href: '/buy-scrap' },
+  //   ]
+  // },
+  // 
+  { name: 'Technology', href: '/technology' },
+  
+  { 
+    name: 'Recyclopedia', 
+    dropdown: [
+      { name: 'Case Studies', href: '/caseStudies' },
+      { name: 'Blogs', href: '/blogs' },
+    ]
+  },
   { name: 'Contact', href: '/#contact' },
 ];
 
@@ -49,8 +68,8 @@ export function Header() {
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      scrolled ? "h-20 bg-background/80 shadow-lg backdrop-blur-sm" : "h-24 bg-transparent"
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-20",
+    "bg-neutral-900 backdrop-blur-md shadow-md"
     )}>
       <div 
         className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-primary to-primary-600"
@@ -63,7 +82,9 @@ export function Header() {
             item.dropdown ? (
               <DropdownMenu key={item.name}>
                 <DropdownMenuTrigger asChild>
-                  <button className="text-base font-semibold text-foreground hover:text-primary transition-colors duration-300">{item.name}</button>
+                  <button className="text-base font-semibold text-foreground hover:text-primary transition-colors duration-300 flex">{item.name}
+                    {item.dropdown && <ChevronDown className="w-4 h-4 mt-[6px] " />}
+                  </button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="mt-3">
                   {item.dropdown.map((subItem) => (

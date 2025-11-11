@@ -5,24 +5,43 @@ import { Button } from '@/components/ui/button';
 import { useInView } from '@/hooks/use-in-view';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export function HeroSection() {
   const [ref, isInView] = useInView<HTMLDivElement>({ threshold: 0.3 });
 
+  // Array of local video paths from public folder
+  const videos = [
+    "/videos/video01.mp4",
+    "/videos/video02.mp4",
+    "/videos/video03.mp4",
+    "/videos/video04.mp4"
+  ];
+
+  const [currentVideo, setCurrentVideo] = useState(0);
+
+  const handleVideoEnd = () => {
+    setCurrentVideo((prev) => (prev + 1) % videos.length);
+  };
+
   return (
     <section ref={ref} className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
+      {/* Video background */}
       <div className="absolute inset-0 z-0">
         <video
-          src="https://videos.pexels.com/video-files/5529528/5529528-hd.mp4"
+          key={currentVideo} // reloads video when source changes
+          src={videos[currentVideo]}
           autoPlay
-          loop
+          loop={false} // false to allow switching to next video
           muted
           playsInline
+          onEnded={handleVideoEnd} // switch to next video
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
+      {/* Hero content */}
       <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <div className={cn("space-y-6", isInView ? 'animate-slide-up opacity-100' : 'opacity-0')}>
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-white animate-fade-in" style={{ animationDelay: '0.2s' }}>
@@ -46,7 +65,7 @@ export function HeroSection() {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/10 hover:text-white">
-               <Link href="/buy-scrap">
+              <Link href="/buy-scrap">
                 Buy Recycled Materials
               </Link>
             </Button>

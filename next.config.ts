@@ -24,10 +24,36 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'plus.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'picsum.photos',
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com', // ✅ Added Pexels image domain
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.gettyimages.in', // ✅ Added Pexels image domain
+        port: '',
+        pathname: '/**',
+      },
+      { protocol: 'https', hostname: 'media.gettyimages.com', port: '', pathname: '/**' },
+      { protocol: 'https', hostname: 'media.istockphoto.com', port: '', pathname: '/**' },
+      { protocol: 'https', hostname: 'i0.wp.com', port: '', pathname: '/**' },
+      { protocol: 'https', hostname: 'www.cm-today.com', port: '', pathname: '/**' },
+      { protocol: 'https', hostname: 'plasticrecyclingconference.com', port: '', pathname: '/**' },
+      { protocol: 'https', hostname: 'jiantai.io', port: '', pathname: '/**' },
+      { protocol: 'https', hostname: 'thumbs.dreamstime.com', port: '', pathname: '/**' },
+      { protocol: 'https', hostname: 'cached.imagescaler.hbpl.co.uk', port: '', pathname: '/**' },
     ],
   },
 };
