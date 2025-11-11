@@ -35,27 +35,31 @@ export function Footer() {
             <h3 className="font-headline text-lg font-semibold text-white">Company</h3>
             <ul className="mt-4 space-y-2">
               <li><Link href="/#about" className="text-sm hover:text-primary transition-colors">About</Link></li>
-              <li><Link href="/#process" className="text-sm hover:text-primary transition-colors">Process</Link></li>
-              <li><Link href="/#sustainability" className="text-sm hover:text-primary transition-colors">Sustainability</Link></li>
-              <li><Link href="#" className="text-sm hover:text-primary transition-colors">Careers</Link></li>
+              <li><Link href="/technology" className="text-sm hover:text-primary transition-colors">Technology</Link></li>
+              {/* <li><Link href="/#sustainability" className="text-sm hover:text-primary transition-colors">Sustainability</Link></li>
+              <li><Link href="#" className="text-sm hover:text-primary transition-colors">Careers</Link></li> */}
             </ul>
           </div>
 
           <div>
             <h3 className="font-headline text-lg font-semibold text-white">Solutions</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link href="#" className="text-sm hover:text-primary transition-colors">For Suppliers</Link></li>
+              {/* <li><Link href="#" className="text-sm hover:text-primary transition-colors">For Suppliers</Link></li>
               <li><Link href="#" className="text-sm hover:text-primary transition-colors">For Buyers</Link></li>
               <li><Link href="/#products" className="text-sm hover:text-primary transition-colors">Products</Link></li>
-              <li><Link href="#" className="text-sm hover:text-primary transition-colors">EPR Credits</Link></li>
+              <li><Link href="#" className="text-sm hover:text-primary transition-colors">EPR Credits</Link></li> */}
+              <li><Link href="/polyEthylene" className="text-sm hover:text-primary transition-colors">rPE</Link></li>
+              <li><Link href="/polyPropylene" className="text-sm hover:text-primary transition-colors">rPP</Link></li>
+              <li><Link href="/epr" className="text-sm hover:text-primary transition-colors">EPR and Plastic Credits</Link></li>
+              <li><Link href="/recyclabilityAssessment" className="text-sm hover:text-primary transition-colors">Recyclability Assessment</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-headline text-lg font-semibold text-white">Resources</h3>
+            <h3 className="font-headline text-lg font-semibold text-white">Recyclopedia</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link href="#" className="text-sm hover:text-primary transition-colors">Blog</Link></li>
-              <li><Link href="#" className="text-sm hover:text-primary transition-colors">Case Studies</Link></li>
+              <li><Link href="/blogs" className="text-sm hover:text-primary transition-colors">Blog</Link></li>
+              <li><Link href="/caseStudies" className="text-sm hover:text-primary transition-colors">Case Studies</Link></li>
               <li><Link href="#" className="text-sm hover:text-primary transition-colors">FAQs</Link></li>
               <li><Link href="/#contact" className="text-sm hover:text-primary transition-colors">Contact</Link></li>
             </ul>
