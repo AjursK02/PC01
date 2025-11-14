@@ -15,7 +15,7 @@ export function Logo({ className }: LogoProps) {
         <h1 className={cn(
           "font-headline text-xl font-bold tracking-tight text-foreground"
         )}>
-          Penaca
+          Penaca Deployed
         </h1>
         <p className={cn(
           "text-sm -mt-1 text-neutral-400"
