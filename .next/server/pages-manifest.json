@@ -1,1 +1,10 @@
-{}
+{
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/blogs": "pages/blogs.js",
+  "/blogs/[slug]": "pages/blogs/[slug].js",
+  "/polyEthylene": "pages/polyEthylene.js",
+  "/polyPropylene": "pages/polyPropylene.js",
+  "/privacyPolicy": "pages/privacyPolicy.js",
+  "/technology": "pages/technology.js"
+}
