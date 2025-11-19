@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className={cn("font-body antialiased min-h-screen flex flex-col relative")}>
       
       <Header />
-      <main className="flex-1 relative z-10 pt-28 bg-white">{children}</main>
+      <main className="flex-1 relative z-10 pt-20 bg-white">{children}</main>
       <Footer />
       <Toaster />
     </div>
