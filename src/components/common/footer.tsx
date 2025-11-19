@@ -109,9 +109,9 @@ export function Footer() {
                 </Link>
             </div>
             <div className="flex gap-4 text-sm text-neutral-400">
-                <Link href="/privacyPolicy" className="hover:text-primary transition-colors">Privacy</Link>
-                <span className="text-neutral-600">|</span>
-                <Link href="#" className="hover:text-primary transition-colors">Terms</Link>
+                <Link href="/privacyPolicy" className="hover:text-primary transition-colors">Terms and Privacy</Link>
+                {/* <span className="text-neutral-600">|</span>
+                <Link href="#" className="hover:text-primary transition-colors">Terms</Link> */}
             </div>
         </div>
       </div>

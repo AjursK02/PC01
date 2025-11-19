@@ -90,3 +90,50 @@ body {
     background-position: 0% 50%;
   }
 }
+
+/* Simple Help Robot Animations - Subtle and Professional */
+@keyframes blink {
+  0%, 90%, 100% {
+    opacity: 1;
+  }
+  92%, 98% {
+    opacity: 0.1;
+  }
+}
+
+/* Antenna extension on hover */
+.robot-antenna-rod {
+  transition: transform 0.3s ease-out;
+  transform-origin: 28px 18px;
+}
+
+.group:hover .robot-antenna-rod {
+  transform: scaleY(3.5);
+}
+
+.robot-antenna-tip {
+  transition: transform 0.3s ease-out;
+  transform-origin: 28px 6px;
+}
+
+.group:hover .robot-antenna-tip {
+  transform: translateY(-9px);
+}
+
+/* Eye blink on hover */
+.robot-eye {
+  transition: opacity 0.15s ease-out;
+}
+
+.group:hover .robot-eye {
+  animation: blink-hover 0.3s ease-out;
+}
+
+@keyframes blink-hover {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}

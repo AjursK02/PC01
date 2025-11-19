@@ -5,6 +5,8 @@ import { Footer } from '@/components/common/footer';
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
 import { Background } from '@/components/common/background';
+import { WhatsAppButton } from '@/components/common/whatsapp-button';
+import { ContactModal } from '@/components/common/contact-modal';
 
 export const metadata: Metadata = {
   title: 'Penaca Circular Solutions',
@@ -30,6 +32,11 @@ export default function RootLayout({
         <Header />
         <main className="flex-1 relative z-10">{children}</main>
         <Footer />
+        <WhatsAppButton 
+          phoneNumber="+91 12345 67890" 
+          message="Hello, I visited the Penaca Circular Solutions website and I'm interested in your sustainable plastic solutions. Could you help me with more details?"
+        />
+        <ContactModal delaySeconds={60} />
         <Toaster />
       </body>
     </html>
