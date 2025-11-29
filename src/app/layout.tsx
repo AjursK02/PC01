@@ -33,7 +33,7 @@ export default function RootLayout({
         <main className="flex-1 relative z-10">{children}</main>
         <Footer />
         <WhatsAppButton 
-          phoneNumber="+91 12345 67890" 
+          phoneNumber="+91 80088 24777" 
           message="Hello, I visited the Penaca Circular Solutions website and I'm interested in your sustainable plastic solutions. Could you help me with more details?"
         />
         <ContactModal delaySeconds={60} />
