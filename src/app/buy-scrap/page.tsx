@@ -1,4 +1,8 @@
+'use client';
+
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -6,6 +10,89 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/components/ui/textarea';
 
 export default function BuyScrapPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [material, setMaterial] = useState<string>('');
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      
+      // Get form values in correct order
+      const name = formData.get('name') as string;
+      const company = formData.get('company') as string;
+      const email = formData.get('email') as string;
+      const phone = formData.get('phone') as string;
+      const quantity = formData.get('quantity') as string;
+      const message = formData.get('message') as string;
+      
+      // Map material values to proper display names
+      const materialMap: { [key: string]: string } = {
+        'rpe': 'Recycled Polyethylene (rPE)',
+        'rpp': 'Recycled Polypropylene (rPP)'
+      };
+      const materialDisplay = material ? (materialMap[material] || material) : '';
+      
+      // Create ordered object with form_type first
+      const orderedData: { [key: string]: string } = {
+        'access_key': 'c9385d2c-b811-41a9-acb0-b528300d6208',
+        'subject': 'Buy Scrap Request - Penaca Circular Solutions',
+        'Form Type': 'Buy Scrap',
+        'Name': name || '',
+        'Company': company || '',
+        'Email': email || '',
+        'Phone': phone || '',
+        'Material': materialDisplay,
+        'Quantity': quantity || '',
+        'Message': message || ''
+      };
+      
+      const json = JSON.stringify(orderedData);
+
+      // Submit to Web3Forms
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Reset form and state
+        (e.target as HTMLFormElement).reset();
+        setMaterial('');
+        
+        // Show success toast
+        toast({
+          title: "Request Submitted Successfully!",
+          description: "We'll get back to you soon with a quote.",
+          className: "bg-green-50 border-green-200 text-green-900 border-l-4 border-l-primary-500",
+        });
+      } else {
+        toast({
+          title: "Submission Failed",
+          description: "Something went wrong. Please try again or contact us directly.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Submission Failed",
+        description: "Something went wrong. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
       <div className="text-center mb-12">
@@ -62,26 +149,26 @@ export default function BuyScrapPage() {
             <CardDescription>Let us know your material requirements.</CardDescription>
           </CardHeader>
           <CardContent>
-            <form className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name</Label>
-                <Input id="name" placeholder="John Doe" />
+                <Input id="name" name="name" placeholder="John Doe" required disabled={isSubmitting} />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="company">Company Name</Label>
-                <Input id="company" placeholder="Your Company Inc." />
+                <Input id="company" name="company" placeholder="Your Company Inc." required disabled={isSubmitting} />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="john.doe@example.com" />
+                <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required disabled={isSubmitting} />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="phone">Phone Number</Label>
-                <Input id="phone" type="tel" placeholder="+91 12345 67890" />
+                <Input id="phone" name="phone" type="tel" placeholder="+91 12345 67890" required disabled={isSubmitting} />
               </div>
               <div className="sm:col-span-2 space-y-2">
                 <Label htmlFor="material">Material Type</Label>
-                <Select>
+                <Select value={material} onValueChange={setMaterial} required disabled={isSubmitting}>
                   <SelectTrigger id="material">
                     <SelectValue placeholder="Select a material" />
                   </SelectTrigger>
@@ -93,16 +180,26 @@ export default function BuyScrapPage() {
               </div>
               <div className="sm:col-span-2 space-y-2">
                 <Label htmlFor="quantity">Required Quantity (in Tons)</Label>
-                <Input id="quantity" type="number" placeholder="e.g., 10" />
+                <Input id="quantity" name="quantity" type="number" placeholder="e.g., 10" required disabled={isSubmitting} />
               </div>
               <div className="sm:col-span-2 space-y-2">
                 <Label htmlFor="message">Additional Requirements</Label>
-                <Textarea id="message" placeholder="Tell us more about your needs, desired specifications, etc." />
+                <Textarea id="message" name="message" placeholder="Tell us more about your needs, desired specifications, etc." disabled={isSubmitting} />
+              </div>
+              
+              <div className="sm:col-span-2">
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full" 
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Submitting...' : 'Submit Request'}
+                </Button>
               </div>
             </form>
           </CardContent>
           <CardFooter>
-            <Button size="lg" className="w-full">Submit Request</Button>
           </CardFooter>
         </Card>
       </div>

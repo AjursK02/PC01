@@ -1538,6 +1538,10 @@ body {
   border-left-width: 1px;
 }
 
+.border-l-4 {
+  border-left-width: 4px;
+}
+
 .border-l-8 {
   border-left-width: 8px;
 }
@@ -1581,6 +1585,11 @@ body {
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
+}
+
+.border-green-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(187 247 208 / var(--tw-border-opacity, 1));
 }
 
 .border-input {
@@ -1636,6 +1645,11 @@ body {
 .border-l-neutral-900 {
   --tw-border-opacity: 1;
   border-left-color: rgb(15 23 42 / var(--tw-border-opacity, 1));
+}
+
+.border-l-primary-500 {
+  --tw-border-opacity: 1;
+  border-left-color: rgb(34 197 94 / var(--tw-border-opacity, 1));
 }
 
 .border-l-transparent {
@@ -1711,6 +1725,11 @@ body {
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+}
+
+.bg-green-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 253 244 / var(--tw-bg-opacity, 1));
 }
 
 .bg-green-900 {
@@ -3568,7 +3587,7 @@ body {
   --tw-enter-translate-x: -50%;
 }
 
-.data-\[state\=open\]\:slide-in-from-right[data-state="open"] {
+.data-\[state\=open\]\:slide-in-from-right[data-state="open"], .data-\[state\=open\]\:slide-in-from-right-full[data-state="open"] {
   --tw-enter-translate-x: 100%;
 }
 
@@ -3578,10 +3597,6 @@ body {
 
 .data-\[state\=open\]\:slide-in-from-top-\[48\%\][data-state="open"] {
   --tw-enter-translate-y: -48%;
-}
-
-.data-\[state\=open\]\:slide-in-from-top-full[data-state="open"] {
-  --tw-enter-translate-y: -100%;
 }
 
 .data-\[state\=closed\]\:duration-300[data-state="closed"] {
@@ -3711,18 +3726,6 @@ body {
 }
 
 @media (width >= 640px) {
-  .sm\:bottom-0 {
-    bottom: 0;
-  }
-
-  .sm\:right-0 {
-    right: 0;
-  }
-
-  .sm\:top-auto {
-    top: auto;
-  }
-
   .sm\:col-span-2 {
     grid-column: span 2 / span 2;
   }
@@ -3757,10 +3760,6 @@ body {
 
   .sm\:flex-row {
     flex-direction: row;
-  }
-
-  .sm\:flex-col {
-    flex-direction: column;
   }
 
   .sm\:justify-end {
@@ -3806,10 +3805,6 @@ body {
   .sm\:text-5xl {
     font-size: 3rem;
     line-height: 1;
-  }
-
-  .data-\[state\=open\]\:sm\:slide-in-from-bottom-full[data-state="open"] {
-    --tw-enter-translate-y: 100%;
   }
 }
 
