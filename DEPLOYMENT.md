@@ -350,8 +350,8 @@ sudo apt update && sudo apt install -y certbot python3-certbot-nginx
 sudo certbot --nginx -d your-domain.com --non-interactive --agree-tos --email your-email@example.com --redirect
 
 # If want to update with two domains(Optional)
-sudo certbot --nginx -d penaca.in -d www.penaca.in \
-  --non-interactive --agree-tos --email ajursinsights@gmail.com \
+sudo certbot --nginx -d your-domain.com -d www.your-domain.com \
+  --non-interactive --agree-tos --email your-email@example.com \
   --redirect --expand
 ```
 **Replace:**
