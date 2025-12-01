@@ -94,47 +94,47 @@ export default function BuyScrapPage() {
     }
   };
   return (
-    <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-      <div className="text-center mb-12">
-        <h1 className="font-headline text-5xl font-bold text-white">Buy Recycled Materials</h1>
-        <p className="mt-4 text-lg text-white">
+    <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+      <div className="text-center mb-8 md:mb-12">
+        <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold text-white">Buy Recycled Materials</h1>
+        <p className="mt-3 md:mt-4 text-sm md:text-lg text-white">
           Fill out the form below to get a quote for our premium recycled plastic granules.
         </p>
       </div>
 
       {/* Two-column layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start">
         {/* Left side - info points */}
-<div className="space-y-8 bg-blue-900/40 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-blue-800/30">
-  <h2 className="text-3xl font-semibold text-white">Why Choose Us?</h2>
+<div className="space-y-5 md:space-y-8 bg-blue-900/40 backdrop-blur-sm p-5 md:p-8 rounded-2xl shadow-lg border border-blue-800/30">
+  <h2 className="text-xl md:text-3xl font-semibold text-white">Why Choose Us?</h2>
 
   <div>
-    <h3 className="text-xl font-medium text-white mb-1">✅ Tell us exactly what you need</h3>
-    <p className="text-white">
+    <h3 className="text-base md:text-xl font-medium text-white mb-1">✅ Tell us exactly what you need</h3>
+    <p className="text-sm md:text-base text-white">
       Share your material type, quantity, and specifications — we’ll tailor our offerings to match your exact
       requirements with precision and consistency.
     </p>
   </div>
 
   <div>
-    <h3 className="text-xl font-medium text-white mb-1">💰 Get the best deals on recycled materials</h3>
-    <p className="text-white">
+    <h3 className="text-base md:text-xl font-medium text-white mb-1">💰 Get the best deals on recycled materials</h3>
+    <p className="text-sm md:text-base text-white">
       We provide competitive pricing without compromising quality, helping your business save costs while
       supporting sustainable sourcing.
     </p>
   </div>
 
   <div>
-    <h3 className="text-xl font-medium text-white mb-1">🚚 Fast delivery and reliable quality</h3>
-    <p className="text-white">
+    <h3 className="text-base md:text-xl font-medium text-white mb-1">🚚 Fast delivery and reliable quality</h3>
+    <p className="text-sm md:text-base text-white">
       Our logistics network ensures your order reaches you quickly and safely, backed by consistent, verified
       material quality every time.
     </p>
   </div>
 
   <div>
-    <h3 className="text-xl font-medium text-white mb-1">♻️ Contribute to a greener planet</h3>
-    <p className="text-white">
+    <h3 className="text-base md:text-xl font-medium text-white mb-1">♻️ Contribute to a greener planet</h3>
+    <p className="text-sm md:text-base text-white">
       Every purchase helps reduce plastic waste and promotes a circular economy — together, we can make a
       tangible environmental impact.
     </p>
@@ -144,32 +144,32 @@ export default function BuyScrapPage() {
 
         {/* Right side - your existing form (unchanged) */}
         <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle>Request a Quote</CardTitle>
-            <CardDescription>Let us know your material requirements.</CardDescription>
+          <CardHeader className="px-4 md:px-6">
+            <CardTitle className="text-lg md:text-xl">Request a Quote</CardTitle>
+            <CardDescription className="text-xs md:text-sm">Let us know your material requirements.</CardDescription>
           </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="name">Full Name</Label>
-                <Input id="name" name="name" placeholder="John Doe" required disabled={isSubmitting} />
+          <CardContent className="px-4 md:px-6">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+              <div className="space-y-1.5 md:space-y-2">
+                <Label htmlFor="name" className="text-sm md:text-base">Full Name</Label>
+                <Input id="name" name="name" placeholder="John Doe" required disabled={isSubmitting} className="text-sm md:text-base" />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="company">Company Name</Label>
-                <Input id="company" name="company" placeholder="Your Company Inc." required disabled={isSubmitting} />
+              <div className="space-y-1.5 md:space-y-2">
+                <Label htmlFor="company" className="text-sm md:text-base">Company Name</Label>
+                <Input id="company" name="company" placeholder="Your Company Inc." required disabled={isSubmitting} className="text-sm md:text-base" />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required disabled={isSubmitting} />
+              <div className="space-y-1.5 md:space-y-2">
+                <Label htmlFor="email" className="text-sm md:text-base">Email</Label>
+                <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required disabled={isSubmitting} className="text-sm md:text-base" />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number</Label>
-                <Input id="phone" name="phone" type="tel" placeholder="+91 12345 67890" required disabled={isSubmitting} />
+              <div className="space-y-1.5 md:space-y-2">
+                <Label htmlFor="phone" className="text-sm md:text-base">Phone Number</Label>
+                <Input id="phone" name="phone" type="tel" placeholder="+91 12345 67890" required disabled={isSubmitting} className="text-sm md:text-base" />
               </div>
-              <div className="sm:col-span-2 space-y-2">
-                <Label htmlFor="material">Material Type</Label>
+              <div className="sm:col-span-2 space-y-1.5 md:space-y-2">
+                <Label htmlFor="material" className="text-sm md:text-base">Material Type</Label>
                 <Select value={material} onValueChange={setMaterial} required disabled={isSubmitting}>
-                  <SelectTrigger id="material">
+                  <SelectTrigger id="material" className="text-sm md:text-base">
                     <SelectValue placeholder="Select a material" />
                   </SelectTrigger>
                   <SelectContent>
@@ -178,20 +178,19 @@ export default function BuyScrapPage() {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="sm:col-span-2 space-y-2">
-                <Label htmlFor="quantity">Required Quantity (in Tons)</Label>
-                <Input id="quantity" name="quantity" type="number" placeholder="e.g., 10" required disabled={isSubmitting} />
+              <div className="sm:col-span-2 space-y-1.5 md:space-y-2">
+                <Label htmlFor="quantity" className="text-sm md:text-base">Required Quantity (in Tons)</Label>
+                <Input id="quantity" name="quantity" type="number" placeholder="e.g., 10" required disabled={isSubmitting} className="text-sm md:text-base" />
               </div>
-              <div className="sm:col-span-2 space-y-2">
-                <Label htmlFor="message">Additional Requirements</Label>
-                <Textarea id="message" name="message" placeholder="Tell us more about your needs, desired specifications, etc." disabled={isSubmitting} />
+              <div className="sm:col-span-2 space-y-1.5 md:space-y-2">
+                <Label htmlFor="message" className="text-sm md:text-base">Additional Requirements</Label>
+                <Textarea id="message" name="message" placeholder="Tell us more about your needs, desired specifications, etc." disabled={isSubmitting} className="text-sm md:text-base" />
               </div>
               
               <div className="sm:col-span-2">
                 <Button 
                   type="submit" 
-                  size="lg" 
-                  className="w-full" 
+                  className="w-full text-sm h-10 md:h-12 md:text-base" 
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit Request'}

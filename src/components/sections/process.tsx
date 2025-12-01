@@ -44,37 +44,37 @@ export function ProcessSection() {
   const [ref, isInView] = useInView<HTMLDivElement>();
 
   return (
-    <section id="process" ref={ref} className="bg-background py-24 sm:py-32 overflow-hidden">
+    <section id="process" ref={ref} className="bg-background py-10 sm:py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={cn("text-center max-w-4xl mx-auto mb-16", isInView ? "animate-fade-in" : "opacity-0")}>
-          <div className="inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary-400 uppercase mb-4">Our Process</div>
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-foreground">From Waste to Worth</h2>
-          <p className="mt-4 text-lg text-neutral-300">
+        <div className={cn("text-center max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-16", isInView ? "animate-fade-in" : "opacity-0")}>
+          <div className="inline-block rounded-full bg-primary/10 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-primary-400 uppercase mb-3 md:mb-4">Our Process</div>
+          <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">From Waste to Worth</h2>
+          <p className="mt-3 md:mt-4 text-sm sm:text-base md:text-lg text-neutral-300">
             Our end-to-end recycling process transforms plastic waste into valuable resources through innovation, technology, and transparency.
           </p>
         </div>
 
         <div className="relative">
             <div className="absolute top-1/2 left-0 w-full h-1 -translate-y-1/2 bg-gradient-to-r from-primary/20 via-purple-500/20 to-primary/20 hidden lg:block"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-8">
             {processSteps.map((step, index) => (
                 <div key={step.step} className={cn("z-10", isInView ? 'animate-slide-up' : 'opacity-0')} style={{ animationDelay: `${index * 0.15}s` }}>
-                <Card className="h-full bg-secondary shadow-lg hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 rounded-2xl overflow-hidden border border-border">
-                    <CardContent className="p-8 relative">
-                    <div className="absolute -top-4 -left-4 font-stats text-8xl font-extrabold text-white/5">
+                <Card className="h-full bg-secondary shadow-lg hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 rounded-xl md:rounded-2xl overflow-hidden border border-border">
+                    <CardContent className="p-3 sm:p-4 md:p-8 relative">
+                    <div className="absolute -top-2 -left-2 md:-top-4 md:-left-4 font-stats text-5xl sm:text-6xl md:text-8xl font-extrabold text-white/5">
                         0{step.step}
                     </div>
-                    <div className="relative flex justify-end mb-6">
-                        <div className={cn("w-16 h-16 rounded-xl flex items-center justify-center text-white shadow-lg bg-gradient-to-br", step.gradient)}>
-                        <step.icon className="w-8 h-8" />
+                    <div className="relative flex justify-end mb-3 sm:mb-4 md:mb-6">
+                        <div className={cn("w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-lg md:rounded-xl flex items-center justify-center text-white shadow-lg bg-gradient-to-br", step.gradient)}>
+                        <step.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
                         </div>
                     </div>
-                    <h3 className="font-headline text-2xl font-bold text-foreground mb-3">{step.title}</h3>
-                    <p className="text-neutral-300 mb-6 text-sm leading-relaxed">{step.description}</p>
-                    <ul className="space-y-2">
+                    <h3 className="font-headline text-sm sm:text-base md:text-xl lg:text-2xl font-bold text-foreground mb-1.5 sm:mb-2 md:mb-3">{step.title}</h3>
+                    <p className="text-neutral-300 mb-3 sm:mb-4 md:mb-6 text-[10px] sm:text-xs md:text-sm leading-tight sm:leading-relaxed">{step.description}</p>
+                    <ul className="space-y-1 sm:space-y-1.5 md:space-y-2">
                         {step.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-3 text-sm">
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></div>
+                        <li key={feature} className="flex items-center gap-1.5 sm:gap-2 md:gap-3 text-[10px] sm:text-xs md:text-sm">
+                            <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-primary flex-shrink-0"></div>
                             <span className="text-neutral-200 font-medium">{feature}</span>
                         </li>
                         ))}

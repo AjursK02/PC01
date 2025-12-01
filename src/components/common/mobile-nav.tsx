@@ -2,15 +2,11 @@
 
 import Link from 'next/link';
 import { Dispatch, SetStateAction } from 'react';
-import { X } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
-import { Sheet, SheetContent, SheetHeader } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Logo } from './logo';
 
 interface NavItem {
@@ -28,26 +24,31 @@ interface MobileNavProps {
 export function MobileNav({ isOpen, setIsOpen, navItems }: MobileNavProps) {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetContent side="right" className="w-[320px] bg-white p-0">
+      <SheetContent
+        side="right"
+        className="w-[320px] bg-white p-0"
+        aria-label="Mobile navigation"
+      >
         <SheetHeader className="p-4 border-b">
+          <SheetTitle className="sr-only">Main navigation</SheetTitle>
           <Logo />
         </SheetHeader>
         <div className="p-6">
-          <nav className="flex flex-col gap-6 mt-8">
-            {navItems.map((item) => (
+          <nav className="flex flex-col gap-4 mt-6">
+            {navItems.map((item) =>
               item.dropdown ? (
-                <Accordion type="single" collapsible key={item.name}>
+                <Accordion key={item.name} type="single" collapsible>
                   <AccordionItem value={item.name} className="border-b-0">
-                    <AccordionTrigger className="text-lg font-semibold py-0 hover:no-underline">
-                      {item.name}
+                    <AccordionTrigger className="text-lg font-semibold text-neutral-900 py-2 hover:no-underline">
+                      <span>{item.name}</span>
                     </AccordionTrigger>
-                    <AccordionContent className="pt-2 pl-4">
-                      <div className="flex flex-col gap-4">
+                    <AccordionContent className="pt-1 pb-0">
+                      <div className="flex flex-col gap-3 pl-3 border-l border-neutral-200">
                         {item.dropdown.map((subItem) => (
-                           <Link
+                          <Link
                             key={subItem.name}
                             href={subItem.href}
-                            className="text-base text-neutral-600"
+                            className="text-base text-neutral-700"
                             onClick={() => setIsOpen(false)}
                           >
                             {subItem.name}
@@ -61,20 +62,24 @@ export function MobileNav({ isOpen, setIsOpen, navItems }: MobileNavProps) {
                 <Link
                   key={item.name}
                   href={item.href || '#'}
-                  className="text-lg font-semibold text-neutral-800"
+                  className="text-lg font-semibold text-neutral-800 py-1"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
                 </Link>
               )
-            ))}
+            )}
           </nav>
-          <div className="mt-12 flex flex-col gap-4">
+          <div className="mt-10 flex flex-col gap-4">
             <Button asChild variant="outline" className="w-full">
-              <Link href="/sell-scrap" onClick={() => setIsOpen(false)}>Sell Scrap</Link>
+              <Link href="/sell-scrap" onClick={() => setIsOpen(false)}>
+                Sell Scrap
+              </Link>
             </Button>
             <Button asChild className="w-full">
-              <Link href="/buy-scrap" onClick={() => setIsOpen(false)}>Buy Scrap</Link>
+              <Link href="/buy-scrap" onClick={() => setIsOpen(false)}>
+                Buy Scrap
+              </Link>
             </Button>
           </div>
         </div>

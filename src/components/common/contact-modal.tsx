@@ -142,24 +142,33 @@ export function ContactModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="max-w-4xl w-full p-0 gap-0 overflow-hidden sm:rounded-lg [&>button]:hidden">
+      <DialogContent className="!max-w-4xl !w-[95%] md:!w-full p-0 gap-0 overflow-hidden rounded-lg sm:rounded-lg [&>button]:hidden max-h-[90vh] overflow-y-auto">
         {/* DialogTitle for accessibility - visually hidden */}
         <DialogTitle className="sr-only">Contact Us</DialogTitle>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Left Section - Green Promotional */}
-          <div className="bg-gradient-to-br from-primary-600 to-primary-800 p-6 lg:p-8 flex flex-col justify-between relative overflow-hidden">
+          <div className="bg-gradient-to-br from-primary-600 to-primary-800 p-4 md:p-6 lg:p-8 flex flex-col justify-between relative overflow-hidden">
+            {/* Close Button - Top Right on mobile only */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="lg:hidden absolute right-3 top-3 z-[100] w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/30 transition-colors"
+              aria-label="Close"
+            >
+              <X className="w-4 h-4 text-white" />
+            </button>
+            
             {/* Decorative elements */}
             <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-10 left-10 w-20 h-20 rounded-full bg-white/20"></div>
-              <div className="absolute top-40 right-20 w-16 h-16 rounded-full bg-white/20"></div>
-              <div className="absolute bottom-20 left-20 w-24 h-24 rounded-full bg-white/20"></div>
-              <div className="absolute bottom-40 right-10 w-12 h-12 rounded-full bg-white/20"></div>
+              <div className="absolute top-5 md:top-10 left-5 md:left-10 w-12 md:w-20 h-12 md:h-20 rounded-full bg-white/20"></div>
+              <div className="absolute top-20 md:top-40 right-10 md:right-20 w-10 md:w-16 h-10 md:h-16 rounded-full bg-white/20"></div>
+              <div className="absolute bottom-10 md:bottom-20 left-10 md:left-20 w-14 md:w-24 h-14 md:h-24 rounded-full bg-white/20"></div>
+              <div className="absolute bottom-20 md:bottom-40 right-5 md:right-10 w-8 md:w-12 h-8 md:h-12 rounded-full bg-white/20"></div>
             </div>
 
             <div className="relative z-10">
-              <div className="flex items-center gap-3">
-                <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2 md:gap-3">
+                <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center shrink-0">
                   <Image
                     src="/logo/PC01 Logo.png"
                     alt="Penaca Circular Solutions Logo"
@@ -170,55 +179,55 @@ export function ContactModal({
                   />
                 </div>
                 <div>
-                  <h1 className="font-headline text-xl font-bold tracking-tight text-white">
+                  <h1 className="font-headline text-lg md:text-xl font-bold tracking-tight text-white">
                     Penaca
                   </h1>
-                  <p className="text-sm -mt-1 text-white/80">
+                  <p className="text-xs md:text-sm -mt-1 text-white/80">
                     Circular Solutions
                   </p>
                 </div>
               </div>
               
-              <div className="mt-6 space-y-4">
-                <h2 className="text-2xl lg:text-3xl font-headline font-bold text-white leading-tight">
+              <div className="mt-4 md:mt-6 space-y-3 md:space-y-4">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-headline font-bold text-white leading-tight">
                   Building a sustainable future through circular economy
                 </h2>
                 
-                <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                  <Recycle className="w-4 h-4 text-white" />
-                  <span className="text-white font-semibold text-sm">5000+ Tons Recycled</span>
+                <div className="inline-flex items-center gap-1.5 md:gap-2 bg-white/20 backdrop-blur-sm px-2.5 py-1 md:px-3 md:py-1.5 rounded-full">
+                  <Recycle className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
+                  <span className="text-white font-semibold text-xs md:text-sm">5000+ Tons Recycled</span>
                 </div>
               </div>
             </div>
 
-            <div className="relative z-10 mt-6">
-              <p className="text-white/90 text-base font-medium">
+            <div className="relative z-10 mt-4 md:mt-6">
+              <p className="text-white/90 text-sm md:text-base font-medium">
                 Transforming waste into valuable resources
               </p>
             </div>
           </div>
 
           {/* Right Section - Contact Form */}
-          <div className="bg-white p-6 lg:p-8 flex flex-col relative">
-            {/* Close Button - Top Right Inside White Box */}
+          <div className="bg-white p-4 md:p-6 lg:p-8 flex flex-col relative">
+            {/* Close Button - Top Right Inside White Box (Desktop only) */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute right-4 top-4 z-30 w-8 h-8 rounded-full bg-white hover:bg-neutral-50 flex items-center justify-center shadow-md border border-neutral-200 transition-colors"
+              className="hidden lg:flex absolute right-4 top-4 z-30 w-8 h-8 rounded-full bg-white hover:bg-neutral-50 items-center justify-center shadow-md border border-neutral-200 transition-colors"
               aria-label="Close"
             >
               <X className="w-4 h-4 text-neutral-700" />
             </button>
             
-            <div className="mb-4">
-              <h3 className="text-xl lg:text-2xl font-headline font-bold text-neutral-900">
+            <div className="mb-3 md:mb-4">
+              <h3 className="text-lg md:text-xl lg:text-2xl font-headline font-bold text-neutral-900">
                 Need Assistance? Let's Talk!
               </h3>
-              <p className="text-neutral-600 mt-1 text-sm">
+              <p className="text-neutral-600 mt-1 text-xs md:text-sm">
                 Share your details and our team will contact you soon.
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="flex-1 flex flex-col gap-4">
+            <form onSubmit={handleSubmit} className="flex-1 flex flex-col gap-3 md:gap-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div>
                   <Input 
@@ -227,7 +236,7 @@ export function ContactModal({
                     placeholder="Full Name" 
                     required
                     disabled={isSubmitting}
-                    className="bg-white h-10 border-[1.5px] text-neutral-900"
+                    className="bg-white h-9 md:h-10 border-[1.5px] text-neutral-900 text-sm md:text-base"
                   />
                 </div>
                 <div>
@@ -238,7 +247,7 @@ export function ContactModal({
                     placeholder="Phone Number" 
                     required
                     disabled={isSubmitting}
-                    className="bg-white h-10 border-[1.5px] text-neutral-900"
+                    className="bg-white h-9 md:h-10 border-[1.5px] text-neutral-900 text-sm md:text-base"
                   />
                 </div>
               </div>
@@ -251,13 +260,13 @@ export function ContactModal({
                   placeholder="Email Address" 
                   required
                   disabled={isSubmitting}
-                  className="bg-white h-10 border-[1.5px] text-neutral-900"
+                  className="bg-white h-9 md:h-10 border-[1.5px] text-neutral-900 text-sm md:text-base"
                 />
               </div>
 
               <div>
                 <Select value={department} onValueChange={setDepartment} required disabled={isSubmitting}>
-                  <SelectTrigger id="department" className="bg-white h-10 border-[1.5px] [&>span]:text-neutral-900 [&[data-placeholder]>span]:text-neutral-500 focus:ring-2 focus:ring-ring/20 focus:ring-offset-0 focus:border-primary">
+                  <SelectTrigger id="department" className="bg-white h-9 md:h-10 border-[1.5px] [&>span]:text-neutral-900 [&[data-placeholder]>span]:text-neutral-500 focus:ring-2 focus:ring-ring/20 focus:ring-offset-0 focus:border-primary text-sm md:text-base">
                     <SelectValue placeholder="Department" />
                   </SelectTrigger>
                   <SelectContent>
@@ -277,14 +286,14 @@ export function ContactModal({
                   placeholder="Your Message"
                   required
                   disabled={isSubmitting}
-                  className="min-h-[100px] bg-white resize-none border-[1.5px] text-neutral-900 focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-0 focus-visible:border-primary"
+                  className="min-h-[80px] md:min-h-[100px] bg-white resize-none border-[1.5px] text-neutral-900 focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-0 focus-visible:border-primary text-sm md:text-base"
                 />
               </div>
 
               <Button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary-600 text-white mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-primary hover:bg-primary-600 text-white mt-1 md:mt-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base h-9 md:h-10"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>

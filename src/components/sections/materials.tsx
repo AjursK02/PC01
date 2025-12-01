@@ -46,53 +46,53 @@ export function MaterialsSection() {
   const [ref, isInView] = useInView<HTMLDivElement>();
   
   return (
-    <section id="products" ref={ref} className="bg-background/80 backdrop-blur-sm py-24 sm:py-32">
+    <section id="products" ref={ref} className="bg-background/80 backdrop-blur-sm py-10 sm:py-16 md:py-24 lg:py-32">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={cn("text-center max-w-3xl mx-auto mb-16", isInView ? "animate-fade-in" : "opacity-0")}>
-          <div className="inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary-400 uppercase mb-4">Our Products</div>
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-foreground">Premium Recycled Materials</h2>
-          <p className="mt-4 text-lg text-neutral-300">High-quality recycled plastic granules that match virgin plastic performance while reducing environmental impact.</p>
+        <div className={cn("text-center max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-16", isInView ? "animate-fade-in" : "opacity-0")}>
+          <div className="inline-block rounded-full bg-primary/10 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-primary-400 uppercase mb-3 md:mb-4">Our Products</div>
+          <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">Premium Recycled Materials</h2>
+          <p className="mt-3 md:mt-4 text-sm sm:text-base md:text-lg text-neutral-300">High-quality recycled plastic granules that match virgin plastic performance while reducing environmental impact.</p>
         </div>
 
         <Tabs defaultValue="rpe" className={cn("w-full", isInView ? "animate-slide-up" : "opacity-0")}>
-          <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto h-auto bg-secondary shadow-sm rounded-xl p-1.5">
-            <TabsTrigger value="rpe" className="py-3 text-base font-semibold rounded-lg data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-green-600 data-[state=active]:text-white data-[state=active]:shadow-lg">rPE</TabsTrigger>
-            <TabsTrigger value="rpp" className="py-3 text-base font-semibold rounded-lg data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-green-600 data-[state=active]:text-white data-[state=active]:shadow-lg">rPP</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 max-w-xs sm:max-w-md mx-auto h-auto bg-secondary shadow-sm rounded-xl p-1 sm:p-1.5">
+            <TabsTrigger value="rpe" className="py-2 sm:py-3 text-sm sm:text-base font-semibold rounded-lg data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-green-600 data-[state=active]:text-white data-[state=active]:shadow-lg">rPE</TabsTrigger>
+            <TabsTrigger value="rpp" className="py-2 sm:py-3 text-sm sm:text-base font-semibold rounded-lg data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-green-600 data-[state=active]:text-white data-[state=active]:shadow-lg">rPP</TabsTrigger>
           </TabsList>
           
           {materials.map((material) => {
             const image = placeholderImages.find(p => p.id === material.imageId);
             return (
-              <TabsContent key={material.id} value={material.id} className="mt-12">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <TabsContent key={material.id} value={material.id} className="mt-8 md:mt-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                   <div>
-                    <h3 className="font-headline text-4xl font-bold text-foreground">{material.title}</h3>
-                    <p className="mt-4 text-lg text-neutral-300">{material.description}</p>
-                    <div className="flex flex-wrap gap-2 mt-6">
+                    <h3 className="font-headline text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">{material.title}</h3>
+                    <p className="mt-3 md:mt-4 text-sm sm:text-base md:text-lg text-neutral-300">{material.description}</p>
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-4 md:mt-6">
                       {material.types.map(type => (
-                        <span key={type} className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary-400">{type}</span>
+                        <span key={type} className="rounded-full bg-primary/10 px-2 py-0.5 sm:px-3 sm:py-1 text-xs sm:text-sm font-semibold text-primary-400">{type}</span>
                       ))}
                     </div>
 
-                    <div className="mt-8 space-y-8">
+                    <div className="mt-6 md:mt-8 space-y-6 md:space-y-8">
                        <div>
-                         <h4 className="flex items-center gap-2 text-xl font-semibold font-headline"><Package className="size-5 text-primary"/> Applications</h4>
-                         <div className="grid grid-cols-2 gap-x-6 gap-y-2 mt-4">
+                         <h4 className="flex items-center gap-1.5 sm:gap-2 text-base sm:text-lg md:text-xl font-semibold font-headline"><Package className="size-4 sm:size-5 text-primary"/> Applications</h4>
+                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 md:gap-x-6 gap-y-1.5 sm:gap-y-2 mt-3 md:mt-4">
                             {material.applications.map(app => (
-                                <div key={app} className="flex items-center gap-2">
-                                    <ArrowRight className="size-4 text-primary shrink-0"/>
-                                    <span className="text-neutral-200">{app}</span>
+                                <div key={app} className="flex items-center gap-1.5 sm:gap-2">
+                                    <ArrowRight className="size-3 sm:size-4 text-primary shrink-0"/>
+                                    <span className="text-neutral-200 text-xs sm:text-sm md:text-base">{app}</span>
                                 </div>
                             ))}
                          </div>
                        </div>
                        
                        <div>
-                         <h4 className="flex items-center gap-2 text-xl font-semibold font-headline"><FileText className="size-5 text-primary"/> Specifications</h4>
-                         <Card className="mt-4 bg-secondary/80 shadow-sm border-border">
-                             <CardContent className="p-6 space-y-3">
+                         <h4 className="flex items-center gap-1.5 sm:gap-2 text-base sm:text-lg md:text-xl font-semibold font-headline"><FileText className="size-4 sm:size-5 text-primary"/> Specifications</h4>
+                         <Card className="mt-3 md:mt-4 bg-secondary/80 shadow-sm border-border">
+                             <CardContent className="p-4 md:p-6 space-y-2 md:space-y-3">
                                  {material.specifications.map(spec => (
-                                     <div key={spec.label} className="flex justify-between items-center text-sm border-b border-border pb-3 last:border-b-0 last:pb-0">
+                                     <div key={spec.label} className="flex justify-between items-center text-xs sm:text-sm border-b border-border pb-2 md:pb-3 last:border-b-0 last:pb-0">
                                          <span className="text-neutral-400 font-medium">{spec.label}</span>
                                          <span className="font-semibold text-foreground">{spec.value}</span>
                                      </div>
@@ -102,28 +102,28 @@ export function MaterialsSection() {
                        </div>
                     </div>
 
-                    <div className="flex gap-4 mt-8">
-                      <Button>Request Sample</Button>
-                      <Button variant="outline">Download Datasheet</Button>
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 md:mt-8">
+                      <Button className="text-sm sm:text-base">Request Sample</Button>
+                      <Button variant="outline" className="text-sm sm:text-base">Download Datasheet</Button>
                     </div>
                   </div>
                   
-                  <div className="relative group">
-                     <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary/10 to-purple-500/10 p-6 shadow-lg transition-transform duration-300 group-hover:-translate-y-2">
-                        <div className="relative w-full h-full bg-secondary/50 backdrop-blur-sm rounded-2xl flex items-center justify-center border-2 border-primary/20">
+                  <div className="relative group order-first lg:order-last">
+                     <div className="aspect-square rounded-2xl md:rounded-3xl bg-gradient-to-br from-primary/10 to-purple-500/10 p-4 md:p-6 shadow-lg transition-transform duration-300 group-hover:-translate-y-2">
+                        <div className="relative w-full h-full bg-secondary/50 backdrop-blur-sm rounded-xl md:rounded-2xl flex items-center justify-center border-2 border-primary/20">
                             {image ? (
                                 <Image
                                     src={image.imageUrl}
                                     alt={image.description}
                                     width={500}
                                     height={500}
-                                    className="w-full h-full object-cover rounded-xl"
+                                    className="w-full h-full object-cover rounded-lg md:rounded-xl"
                                     data-ai-hint={image.imageHint}
                                 />
                             ) : (
                                 <div className="text-center text-primary/50">
-                                    <Package className="size-32 mx-auto"/>
-                                    <p className="font-semibold mt-4">{material.title}</p>
+                                    <Package className="size-20 sm:size-24 md:size-32 mx-auto"/>
+                                    <p className="font-semibold mt-3 md:mt-4 text-sm md:text-base">{material.title}</p>
                                 </div>
                             )}
                         </div>
