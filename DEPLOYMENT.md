@@ -367,6 +367,6 @@ You should see a padlock icon ✅ - no browser warnings!
 
 **Note:** If you don't have a domain, continue using HTTP at `http://your-ec2-ip`.
 
----
+----
 
 **That's it! Your deployment pipeline is ready. Just push to `main` and it will deploy automatically! 🚀**
