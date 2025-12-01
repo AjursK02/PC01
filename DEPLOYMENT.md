@@ -348,8 +348,12 @@ sudo apt update && sudo apt install -y certbot python3-certbot-nginx
 
 # Get SSL certificate (replace with your domain and email)
 sudo certbot --nginx -d your-domain.com --non-interactive --agree-tos --email your-email@example.com --redirect
-```
 
+# If want to update with two domains(Optional)
+sudo certbot --nginx -d penaca.in -d www.penaca.in \
+  --non-interactive --agree-tos --email ajursinsights@gmail.com \
+  --redirect --expand
+```
 **Replace:**
 - `your-domain.com` → Your actual domain (e.g., `penaca.com`)
 - `your-email@example.com` → Your email address
@@ -367,6 +371,6 @@ You should see a padlock icon ✅ - no browser warnings!
 
 **Note:** If you don't have a domain, continue using HTTP at `http://your-ec2-ip`.
 
-----
+---
 
 **That's it! Your deployment pipeline is ready. Just push to `main` and it will deploy automatically! 🚀**
