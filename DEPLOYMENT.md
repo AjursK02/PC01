@@ -313,4 +313,60 @@ Internet → EC2 (Port 80) → Nginx → Next.js App (Port 3000) → PM2
 
 ---
 
+## Setting Up HTTPS (With Domain)
+
+If you have a domain name, follow these simple steps to enable HTTPS:
+
+### Step 1: Point Domain to EC2
+
+1. Go to your domain registrar (where you bought the domain)
+2. Add an **A record**:
+   - **Name:** `@` (or leave blank)
+   - **Type:** A
+   - **Value:** Your EC2 public IP
+   - **TTL:** 300 (or default)
+3. Wait 5-30 minutes for DNS to update
+
+### Step 2: Open Port 443
+
+1. Go to **AWS Console → EC2 → Security Groups**
+2. Select your instance's security group
+3. Click **Edit inbound rules**
+4. Add rule:
+   - **Type:** HTTPS
+   - **Port:** 443
+   - **Source:** 0.0.0.0/0
+5. Click **Save rules**
+
+### Step 3: Install SSL Certificate
+
+SSH to your EC2 instance and run:
+
+```bash
+# Install Certbot
+sudo apt update && sudo apt install -y certbot python3-certbot-nginx
+
+# Get SSL certificate (replace with your domain and email)
+sudo certbot --nginx -d your-domain.com --non-interactive --agree-tos --email your-email@example.com --redirect
+```
+
+**Replace:**
+- `your-domain.com` → Your actual domain (e.g., `penaca.com`)
+- `your-email@example.com` → Your email address
+
+### Step 4: Verify HTTPS
+
+Visit: `https://your-domain.com`
+
+You should see a padlock icon ✅ - no browser warnings!
+
+**That's it!** Certbot automatically:
+- ✅ Configures Nginx for HTTPS
+- ✅ Sets up auto-renewal (certificate renews automatically)
+- ✅ Redirects HTTP to HTTPS
+
+**Note:** If you don't have a domain, continue using HTTP at `http://your-ec2-ip`.
+
+---
+
 **That's it! Your deployment pipeline is ready. Just push to `main` and it will deploy automatically! 🚀**
