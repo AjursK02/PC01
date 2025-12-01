@@ -860,7 +860,7 @@ const navItems = [
     // { name: 'Our Process', href: '/#process' },
     {
         name: 'About',
-        href: '/#about'
+        href: '/about'
     },
     {
         name: 'Solutions',

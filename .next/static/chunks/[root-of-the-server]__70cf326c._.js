@@ -1322,7 +1322,7 @@ const navItems = [
     // { name: 'Our Process', href: '/#process' },
     {
         name: 'About',
-        href: '/#about'
+        href: '/about'
     },
     {
         name: 'Solutions',
@@ -2205,35 +2205,16 @@ function Footer() {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "flex gap-4 text-sm text-neutral-400",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "/privacyPolicy",
-                                    className: "hover:text-primary transition-colors",
-                                    children: "Privacy"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/common/footer.tsx",
-                                    lineNumber: 112,
-                                    columnNumber: 17
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "text-neutral-600",
-                                    children: "|"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/common/footer.tsx",
-                                    lineNumber: 113,
-                                    columnNumber: 17
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "#",
-                                    className: "hover:text-primary transition-colors",
-                                    children: "Terms"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/common/footer.tsx",
-                                    lineNumber: 114,
-                                    columnNumber: 17
-                                }, this)
-                            ]
-                        }, void 0, true, {
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                                href: "/privacyPolicy",
+                                className: "hover:text-primary transition-colors",
+                                children: "Terms and Privacy"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/common/footer.tsx",
+                                lineNumber: 112,
+                                columnNumber: 17
+                            }, this)
+                        }, void 0, false, {
                             fileName: "[project]/src/components/common/footer.tsx",
                             lineNumber: 111,
                             columnNumber: 13
