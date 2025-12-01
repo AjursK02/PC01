@@ -11,6 +11,11 @@ import { ContactModal } from '@/components/common/contact-modal';
 export const metadata: Metadata = {
   title: 'Penaca Circular Solutions',
   description: 'Transforming Plastic Waste into Sustainable Resources',
+  icons: {
+    icon: '/logo/PC01 Logo.png',
+    shortcut: '/logo/PC01 Logo.png',
+    apple: '/logo/PC01 Logo.png',
+  },
 };
 
 export default function RootLayout({
@@ -21,19 +26,23 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <head>
+        <link rel="icon" href="/logo/PC01 Logo.png" type="image/png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&family=Montserrat:wght@700&display=swap" rel="stylesheet" />
       </head>
-      <body className={cn(
-        "font-body antialiased"
-      )}>
+      <body 
+        className={cn(
+          "font-body antialiased"
+        )}
+        suppressHydrationWarning
+      >
         <Background />
         <Header />
         <main className="flex-1 relative z-10">{children}</main>
         <Footer />
         <WhatsAppButton 
-          phoneNumber="+91 12345 67890" 
+          phoneNumber="+91 80088 24777" 
           message="Hello, I visited the Penaca Circular Solutions website and I'm interested in your sustainable plastic solutions. Could you help me with more details?"
         />
         <ContactModal delaySeconds={60} />

@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { X, Leaf, Recycle } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 import {
   Dialog,
   DialogContent,
@@ -29,6 +31,9 @@ export function ContactModal({
 }: ContactModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [hasShown, setHasShown] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [department, setDepartment] = useState<string>('');
+  const { toast } = useToast();
 
   useEffect(() => {
     // Check if modal was already shown in this session
@@ -51,12 +56,88 @@ export function ContactModal({
     };
   }, [delaySeconds, hasShown]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted');
-    // You can add API call here
-    setIsOpen(false);
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      
+      // Get form values in correct order
+      const name = formData.get('name') as string;
+      const phone = formData.get('phone') as string;
+      const email = formData.get('email') as string;
+      const message = formData.get('message') as string;
+      
+      // Map department values to proper display names
+      const departmentMap: { [key: string]: string } = {
+        'sales': 'Sales',
+        'support': 'Customer Support',
+        'technical': 'Technical',
+        'partnerships': 'Partnerships',
+        'general': 'General Inquiry'
+      };
+      const departmentDisplay = department ? (departmentMap[department] || department) : '';
+      
+      // Create ordered object with form_type first
+      const orderedData: { [key: string]: string } = {
+        'access_key': 'c9385d2c-b811-41a9-acb0-b528300d6208',
+        'subject': 'New Contact Form Submission - Penaca Circular Solutions',
+        'Form Type': 'Contact Form',
+        'Name': name || '',
+        'Phone': phone || '',
+        'Email': email || '',
+        'Department': departmentDisplay,
+        'Message': message || ''
+      };
+      
+      const json = JSON.stringify(orderedData);
+
+      // Submit to Web3Forms
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Reset form and state
+        (e.target as HTMLFormElement).reset();
+        setDepartment('');
+        
+        // Show success toast
+        toast({
+          title: "Message Sent Successfully!",
+          description: "We'll get back to you soon.",
+          className: "bg-green-50 border-green-200 text-green-900 border-l-4 border-l-primary-500",
+        });
+        
+        // Close modal after 1 second
+        setTimeout(() => {
+          setIsOpen(false);
+        }, 1000);
+      } else {
+        toast({
+          title: "Submission Failed",
+          description: "Something went wrong. Please try again or contact us directly.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Submission Failed",
+        description: "Something went wrong. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -78,8 +159,15 @@ export function ContactModal({
 
             <div className="relative z-10">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border-2 border-white/30">
-                  <span className="font-headline text-2xl font-bold text-white">P</span>
+                <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
+                  <Image
+                    src="/logo/PC01 Logo.png"
+                    alt="Penaca Circular Solutions Logo"
+                    width={48}
+                    height={48}
+                    className="object-contain w-full h-full"
+                    priority
+                  />
                 </div>
                 <div>
                   <h1 className="font-headline text-xl font-bold tracking-tight text-white">
@@ -135,17 +223,21 @@ export function ContactModal({
                 <div>
                   <Input 
                     id="name" 
+                    name="name"
                     placeholder="Full Name" 
                     required
+                    disabled={isSubmitting}
                     className="bg-white h-10 border-[1.5px] text-neutral-900"
                   />
                 </div>
                 <div>
                   <Input 
                     id="phone" 
+                    name="phone"
                     type="tel" 
                     placeholder="Phone Number" 
                     required
+                    disabled={isSubmitting}
                     className="bg-white h-10 border-[1.5px] text-neutral-900"
                   />
                 </div>
@@ -154,15 +246,17 @@ export function ContactModal({
               <div>
                 <Input 
                   id="email" 
+                  name="email"
                   type="email" 
                   placeholder="Email Address" 
                   required
+                  disabled={isSubmitting}
                   className="bg-white h-10 border-[1.5px] text-neutral-900"
                 />
               </div>
 
               <div>
-                <Select>
+                <Select value={department} onValueChange={setDepartment} required disabled={isSubmitting}>
                   <SelectTrigger id="department" className="bg-white h-10 border-[1.5px] [&>span]:text-neutral-900 [&[data-placeholder]>span]:text-neutral-500 focus:ring-2 focus:ring-ring/20 focus:ring-offset-0 focus:border-primary">
                     <SelectValue placeholder="Department" />
                   </SelectTrigger>
@@ -179,16 +273,20 @@ export function ContactModal({
               <div>
                 <Textarea 
                   id="message" 
+                  name="message"
                   placeholder="Your Message"
+                  required
+                  disabled={isSubmitting}
                   className="min-h-[100px] bg-white resize-none border-[1.5px] text-neutral-900 focus-visible:ring-2 focus-visible:ring-ring/20 focus-visible:ring-offset-0 focus-visible:border-primary"
                 />
               </div>
 
               <Button 
                 type="submit" 
-                className="w-full bg-primary hover:bg-primary-600 text-white mt-2"
+                disabled={isSubmitting}
+                className="w-full bg-primary hover:bg-primary-600 text-white mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </form>
           </div>

@@ -38,7 +38,7 @@ jobs:
           ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
           
           # Transfer files
-          scp -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no deploy.tar.gz ecosystem.config.js nginx.conf ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/tmp/
+          scp -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no deploy.tar.gz ecosystem.config.js ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/tmp/
           
           # Deploy on server
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
@@ -67,21 +67,7 @@ jobs:
             pm2 start ecosystem.config.js
             pm2 save
             
-            # Setup Nginx if not already configured
-            if [ ! -f /etc/nginx/sites-available/penaca ]; then
-              echo "Setting up Nginx..."
-              sudo cp /tmp/nginx.conf /etc/nginx/sites-available/penaca
-              sudo ln -sf /etc/nginx/sites-available/penaca /etc/nginx/sites-enabled/
-              sudo rm -f /etc/nginx/sites-enabled/default
-              sudo nginx -t && sudo systemctl restart nginx && sudo systemctl enable nginx
-            else
-              # Update Nginx config if it exists
-              sudo cp /tmp/nginx.conf /etc/nginx/sites-available/penaca
-              sudo nginx -t && sudo systemctl reload nginx
-            fi
-            rm -f /tmp/nginx.conf
-            
-            echo "Deployment successful! Site accessible on port 80"
+            echo "Deployment successful! App restarted via PM2"
           EOF
           
           # Cleanup
