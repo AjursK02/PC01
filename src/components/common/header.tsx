@@ -18,7 +18,7 @@ const navItems = [
   // { name: 'Home', href: '/' },
   
   // { name: 'Our Process', href: '/#process' },
-  { name: 'About', href: '/#about' },
+  { name: 'About', href: '/about' },
   { 
     name: 'Solutions', 
     dropdown: [
