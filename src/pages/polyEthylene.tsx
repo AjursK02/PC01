@@ -67,7 +67,7 @@ export default function OurOfferings() {
             </section> */}
 
                 {/* === Banner Section === */}
-        <section className="relative w-screen h-[90vh] flex items-center justify-center overflow-hidden">
+        <section className="relative w-screen h-[30vh] md:h-[90vh] flex items-center justify-center overflow-hidden">
       {/* === Animated Image Background === */}
       <AnimatePresence>
         <motion.div
@@ -89,12 +89,12 @@ export default function OurOfferings() {
       </AnimatePresence>
 
       {/* === Text Overlay === */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 md:px-12">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-12">
         <motion.span
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-black/80 text-sm tracking-widest uppercase mb-6 border px-4 py-1 rounded-full border-white/30 bg-yellow-400"
+          className="text-black/80 text-xs md:text-sm tracking-widest uppercase mb-4 md:mb-6 border px-3 md:px-4 py-1 rounded-full border-white/30 bg-yellow-400"
         >
           Our Offerings
         </motion.span>
@@ -103,7 +103,7 @@ export default function OurOfferings() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
-          className="text-4xl md:text-6xl font-extrabold text-white max-w-5xl leading-tight"
+          className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white max-w-5xl leading-tight"
         >
           Polyethylene (PE)
         </motion.h1>
@@ -112,7 +112,7 @@ export default function OurOfferings() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4 }}
-          className="mt-8 text-lg md:text-xl text-white/90 max-w-3xl leading-relaxed"
+          className="mt-4 md:mt-8 text-sm md:text-lg lg:text-xl text-white/90 max-w-3xl leading-relaxed"
         >
           Discover how Penaca is transforming common polymers like HDPE and LDPE into
           sustainable, high-quality recycled materials.
@@ -121,7 +121,7 @@ export default function OurOfferings() {
     </section>
 
             {/* === Content Sections === */}
-            <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-12 py-28 space-y-40">
+            <div className="max-w-6xl mx-auto px-4 md:px-10 lg:px-12 py-16 md:py-28 space-y-24 md:space-y-40">
                 {/* HDPE Section */}
                 <MaterialSection
                     title="High Density Polyethylene (HDPE)"
@@ -130,7 +130,7 @@ export default function OurOfferings() {
                     examples={[
                         "https://images.pexels.com/photos/10566502/pexels-photo-10566502.jpeg?_gl=1*grumy9*_ga*MjEyMjQzODkyNC4xNzUwNDA2MDE1*_ga_8JE65Q40S6*czE3NjE1NjY2NjYkbzI4JGcxJHQxNzYxNTY3MzgxJGo1OSRsMCRoMA..",
                         "https://images.pexels.com/photos/4491711/pexels-photo-4491711.jpeg?_gl=1*1efz4v8*_ga*MjEyMjQzODkyNC4xNzUwNDA2MDE1*_ga_8JE65Q40S6*czE3NjE1NjY2NjYkbzI4JGcxJHQxNzYxNTY3NTE1JGo5JGwwJGgw",
-                        "https://media.istockphoto.com/id/1650800203/photo/dirty-used-motor-oil-plastic-bottle-piles-together.jpg?s=2048x2048&w=is&k=20&c=QjRQfqvwReK7QMI9sPDN-mC5ixOfUHgrBNhdymE6zvc=",
+                        "https://unitedpipeline.com/wp-content/uploads/2024/10/United-Pipeline-HDPE.jpg",
                     ]}
                     details={[
                         {
@@ -175,8 +175,8 @@ HDPE remains a high-value circular material for recyclers.`,
                     description={`LDPE (Low Density Polyethylene) is an early form of polyethylene, featuring branched molecular chains that make it flexible, transparent and less dense. It is widely used for films, bags, packaging wraps, liners and some rigid packaging. `}
                     examples={[
                         "https://images.pexels.com/photos/3900506/pexels-photo-3900506.jpeg?_gl=1*1pq1squ*_ga*MjEyMjQzODkyNC4xNzUwNDA2MDE1*_ga_8JE65Q40S6*czE3NjE1NjY2NjYkbzI4JGcxJHQxNzYxNTY4MzczJGozNSRsMCRoMA..",
-                        "https://media.istockphoto.com/id/508654394/photo/colored-plastic-utensils-on-red-background.jpg?s=2048x2048&w=is&k=20&c=9N-Yjj-ISTFVAqVO_3VTByuiYeHH8dMcMh8MZdBrBtM=",
-                        "https://media.istockphoto.com/id/2232353272/photo/bottles-of-glue-with-caps-isolated-on-white.jpg?s=2048x2048&w=is&k=20&c=4kZoDAZxfzHJZ3HieoKVlIEazHc8p455bPZCfRAt2lk=",
+                        "https://mac-mess.cn/wp-content/uploads/2023/08/3432344_edit.jpg",
+                        "https://cdn.shopify.com/s/files/1/0593/4235/6578/files/LDPE-and-advantages.jpg?v=1730004211",
                     ]}
                     details={[
                         {
@@ -258,47 +258,47 @@ will improve LDPE circularity and value recovery.`,
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
     viewport={{ once: true }}
-    className="max-w-6xl mx-auto px-6 md:px-10 lg:px-12 py-20"
+    className="max-w-6xl mx-auto px-4 md:px-10 lg:px-12 py-12 md:py-20"
 >
     {/* <h2 className="text-3xl md:text-4xl font-bold text-blue-950 text-center mb-10">
         Polyethylene Grades Comparison
     </h2> */}
 
-    <div className="overflow-x-auto rounded-2xl shadow-lg border border-gray-200">
+    <div className="overflow-x-auto rounded-xl md:rounded-2xl shadow-lg border border-gray-200">
         <table className="min-w-full text-left text-gray-800">
-            <thead className="bg-green-900 text-white text-sm md:text-base">
+            <thead className="bg-green-900 text-white text-xs md:text-base">
                 <tr>
-                    <th className="px-6 py-4 font-semibold">Material</th>
-                    <th className="px-6 py-4 font-semibold">Resin Code</th>
-                    <th className="px-6 py-4 font-semibold">Typical Use</th>
-                    <th className="px-6 py-4 font-semibold">Recycle Strength</th>
-                    <th className="px-6 py-4 font-semibold">Key Opportunity for Circularity</th>
+                    <th className="px-3 md:px-6 py-3 md:py-4 font-semibold">Material</th>
+                    <th className="px-3 md:px-6 py-3 md:py-4 font-semibold">Resin Code</th>
+                    <th className="px-3 md:px-6 py-3 md:py-4 font-semibold">Typical Use</th>
+                    <th className="px-3 md:px-6 py-3 md:py-4 font-semibold">Recycle Strength</th>
+                    <th className="px-3 md:px-6 py-3 md:py-4 font-semibold">Key Opportunity for Circularity</th>
                 </tr>
             </thead>
 
-            <tbody className="divide-y divide-gray-200 text-sm md:text-base bg-white">
+            <tbody className="divide-y divide-gray-200 text-xs md:text-base bg-white">
                 <tr className="hover:bg-yellow-50">
-                    <td className="px-6 py-4 font-medium text-green-900">HDPE</td>
-                    <td className="px-6 py-4">#2</td>
-                    <td className="px-6 py-4">Bottles, pipes, crates</td>
-                    <td className="px-6 py-4">High</td>
-                    <td className="px-6 py-4">rHDPE in piping, bins, lumber</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-green-900">HDPE</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4">#2</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4">Bottles, pipes, crates</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4">High</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4">rHDPE in piping, bins, lumber</td>
                 </tr>
 
                 <tr className="hover:bg-yellow-50">
-                    <td className="px-6 py-4 font-medium text-green-900">LDPE</td>
-                    <td className="px-6 py-4">#4</td>
-                    <td className="px-6 py-4">Films, bags, wraps</td>
-                    <td className="px-6 py-4">Moderate</td>
-                    <td className="px-6 py-4">rLDPE in films, liners</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-green-900">LDPE</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4">#4</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4">Films, bags, wraps</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4">Moderate</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4">rLDPE in films, liners</td>
                 </tr>
 
                 <tr className="hover:bg-yellow-50">
-                    <td className="px-6 py-4 font-medium text-green-900">MDPE</td>
-                    <td className="px-6 py-4"></td>
-                    <td className="px-6 py-4">Shrink film, medium bags, pipes</td>
-                    <td className="px-6 py-4">Emerging</td>
-                    <td className="px-6 py-4">Dedicated rMDPE supply streams</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-green-900">MDPE</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4"></td>
+                    <td className="px-3 md:px-6 py-3 md:py-4">Shrink film, medium bags, pipes</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4">Emerging</td>
+                    <td className="px-3 md:px-6 py-3 md:py-4">Dedicated rMDPE supply streams</td>
                 </tr>
             </tbody>
         </table>
@@ -321,30 +321,30 @@ function MaterialSection({ title, subtitle, description, examples, details }: an
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-10"
+            className="space-y-6 md:space-y-10"
         >
             {/* Subtitle Badge */}
-            <span className="inline-block border border-yellow-400 px-4 py-1 rounded-full uppercase text-sm tracking-widest text-green-900 bg-yellow-300">
+            <span className="inline-block border border-yellow-400 px-3 md:px-4 py-1 rounded-full uppercase text-xs md:text-sm tracking-widest text-green-900 bg-yellow-300">
                 <div className="flex items-center">
-                    <Recycle className="size-5 text-green-800 mr-2" />
+                    <Recycle className="size-4 md:size-5 text-green-800 mr-2" />
                     {subtitle}
                 </div>
             </span>
 
             {/* Title */}
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-950">{title}</h2>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-950">{title}</h2>
 
             {/* Description */}
-            <p className="text-gray-800 text-lg leading-relaxed whitespace-pre-line">
+            <p className="text-gray-800 text-sm md:text-lg leading-relaxed whitespace-pre-line">
                 {description}
             </p>
 
             {/* Example Images Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 pt-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-5 pt-2">
                 {examples?.map((img: string, i: number) => (
                     <div
                         key={i}
-                        className="relative w-full h-40 sm:h-48 rounded-xl overflow-hidden shadow-md"
+                        className="relative w-full h-32 sm:h-40 md:h-48 rounded-xl overflow-hidden shadow-md"
                     >
                         <Image src={img} alt="example" fill className="object-cover" />
                     </div>
@@ -352,13 +352,13 @@ function MaterialSection({ title, subtitle, description, examples, details }: an
             </div>
 
             {/* Detailed Sections */}
-            <div className="space-y-10 pt-8">
+            <div className="space-y-6 md:space-y-10 pt-4 md:pt-8">
                 {details?.map((d: any, i: number) => (
-                    <div key={i} className="space-y-4">
-                        <h3 className="text-2xl font-semibold text-green-900 inline-block py-1 ">
+                    <div key={i} className="space-y-2 md:space-y-4">
+                        <h3 className="text-lg md:text-2xl font-semibold text-green-900 inline-block py-1 ">
                             {d.heading}
                         </h3>
-                        <p className="text-gray-800 text-lg leading-relaxed whitespace-pre-line">
+                        <p className="text-gray-800 text-sm md:text-lg leading-relaxed whitespace-pre-line">
                             {d.text}
                         </p>
                     </div>
@@ -429,29 +429,29 @@ New markets are growing fast as brands commit to using recycled content.`,
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-5xl mx-auto px-6 md:px-10 lg:px-12 py-24"
+            className="max-w-5xl mx-auto px-4 md:px-10 lg:px-12 py-12 md:py-24"
         >
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-950 mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-blue-950 mb-8 md:mb-12">
                 FAQs
             </h2>
 
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
                 {faqs.map((faq, i) => (
                     <div
                         key={i}
-                        className="border border-yellow-300 rounded-2xl shadow-sm overflow-hidden bg-white"
+                        className="border border-yellow-300 rounded-xl md:rounded-2xl shadow-sm overflow-hidden bg-white"
                     >
                         <button
                             onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                            className="w-full flex justify-between items-center px-6 py-5 text-left"
+                            className="w-full flex justify-between items-center px-4 md:px-6 py-4 md:py-5 text-left"
                         >
-                            <span className="text-lg font-medium text-gray-900">
+                            <span className="text-sm md:text-lg font-medium text-gray-900 pr-2">
                                 {faq.question}
                             </span>
                             {openIndex === i ? (
-                                <ChevronUp className="text-green-800 size-6" />
+                                <ChevronUp className="text-green-800 size-5 md:size-6 flex-shrink-0" />
                             ) : (
-                                <ChevronDown className="text-green-800 size-6" />
+                                <ChevronDown className="text-green-800 size-5 md:size-6 flex-shrink-0" />
                             )}
                         </button>
 
@@ -463,9 +463,9 @@ New markets are growing fast as brands commit to using recycled content.`,
                                     : { height: 0, opacity: 0 }
                             }
                             transition={{ duration: 0.4 }}
-                            className="overflow-hidden px-6"
+                            className="overflow-hidden px-4 md:px-6"
                         >
-                            <p className="pb-6 text-gray-800 whitespace-pre-line text-base leading-relaxed">
+                            <p className="pb-4 md:pb-6 text-gray-800 whitespace-pre-line text-xs md:text-base leading-relaxed">
                                 {faq.answer}
                             </p>
                         </motion.div>

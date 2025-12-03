@@ -7,7 +7,7 @@ export default function About() {
   return (
     <Layout>
       {/* === Banner Section === */}
-      <section className="relative w-screen h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-screen h-[30vh] md:h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg"
@@ -18,12 +18,12 @@ export default function About() {
           />
         </div>
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 md:px-12">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-12">
           <motion.span
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-black/80 text-sm tracking-widest uppercase mb-6 border px-4 py-1 rounded-full border-white/30 bg-yellow-400"
+            className="text-black/80 text-xs md:text-sm tracking-widest uppercase mb-4 md:mb-6 border px-3 py-1 md:px-4 rounded-full border-white/30 bg-yellow-400"
           >
             About Us
           </motion.span>
@@ -32,7 +32,7 @@ export default function About() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2 }}
-            className="text-4xl md:text-6xl font-extrabold text-white max-w-5xl leading-tight"
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white max-w-5xl leading-tight"
           >
             Building India’s Most Responsible Recycling Ecosystem
           </motion.h1>
@@ -41,7 +41,7 @@ export default function About() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.4 }}
-            className="mt-8 text-lg md:text-xl text-white/90 max-w-3xl leading-relaxed"
+            className="mt-4 md:mt-8 text-sm md:text-lg lg:text-xl text-white/90 max-w-3xl leading-relaxed px-2"
           >
             Penaca is committed to transforming plastic waste into valuable
             resources through responsible, technology-driven recycling.
@@ -51,7 +51,7 @@ export default function About() {
 
       
       {/* ===== Enhanced Three Sections (No Images) ===== */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12 py-32 space-y-40">
+      <div className="max-w-7xl mx-auto px-4 md:px-10 lg:px-12 py-16 md:py-32 space-y-20 md:space-y-40">
 
         {/* === SECTION 1 === */}
         <motion.section
@@ -59,12 +59,12 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="relative rounded-3xl p-12 md:p-16 bg-gradient-to-br from-blue-200 to-blue-400 shadow-xl"
+          className="relative rounded-2xl md:rounded-3xl p-6 md:p-12 lg:p-16 bg-gradient-to-br from-blue-200 to-blue-400 shadow-xl"
         >
           {/* Decorative Shape */}
-          <div className="absolute -top-10 -left-10 w-32 h-32 bg-blue-300/30 blur-3xl rounded-full"></div>
+          <div className="absolute -top-5 md:-top-10 -left-5 md:-left-10 w-16 md:w-32 h-16 md:h-32 bg-blue-300/30 blur-3xl rounded-full"></div>
 
-          <p className="text-gray-900 text-lg leading-relaxed whitespace-pre-line">
+          <p className="text-gray-900 text-sm md:text-lg leading-relaxed whitespace-pre-line">
             Penaca Circular Solutions, founded in 2025, is an innovative leader 
             in polyolefin recycling, engineering a cleaner and more circular future.
 
@@ -85,15 +85,15 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="relative rounded-3xl p-12 md:p-16 bg-gradient-to-br from-yellow-200 to-yellow-400 shadow-xl"
+          className="relative rounded-2xl md:rounded-3xl p-6 md:p-12 lg:p-16 bg-gradient-to-br from-yellow-200 to-yellow-400 shadow-xl"
         >
-          <div className="absolute top-0 right-0 w-40 h-40 bg-yellow-300/20 blur-3xl rounded-full"></div>
+          <div className="absolute top-0 right-0 w-20 md:w-40 h-20 md:h-40 bg-yellow-300/20 blur-3xl rounded-full"></div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-yellow-700 mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-700 mb-4 md:mb-6">
             Vision Statement
           </h2>
 
-          <p className="text-gray-900 text-lg leading-relaxed whitespace-pre-line">
+          <p className="text-gray-900 text-sm md:text-lg leading-relaxed whitespace-pre-line">
             To create a world where recycled polyolefins become the preferred 
             choice across industries—driving sustainability, reducing dependence 
             on virgin materials, and enabling a circular economy powered by 
@@ -108,15 +108,15 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="relative rounded-3xl p-12 md:p-16 bg-gradient-to-br from-green-200 to-green-400 shadow-xl"
+          className="relative rounded-2xl md:rounded-3xl p-6 md:p-12 lg:p-16 bg-gradient-to-br from-green-200 to-green-400 shadow-xl"
         >
-          <div className="absolute -bottom-10 right-0 w-32 h-32 bg-green-300/30 blur-3xl rounded-full"></div>
+          <div className="absolute -bottom-5 md:-bottom-10 right-0 w-16 md:w-32 h-16 md:h-32 bg-green-300/30 blur-3xl rounded-full"></div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-green-800 mb-4 md:mb-6">
             Mission
           </h2>
 
-          <p className="text-gray-900 text-lg leading-relaxed whitespace-pre-line">
+          <p className="text-gray-900 text-sm md:text-lg leading-relaxed whitespace-pre-line">
             To continuously advance recycling technology and processes, reducing
             environmental footprint while maximizing the usability and value of
             recycled polyolefins across industries.
@@ -127,7 +127,7 @@ export default function About() {
 
 
       {/* ===== Final 3 Recycle Image Strip ===== */}
-<section className="relative w-full h-[300px] md:h-[420px] lg:h-[500px]">
+<section className="relative w-full h-[200px] md:h-[420px] lg:h-[500px]">
 
   {/* 3-Image Strip (No Gaps) */}
   <div className="grid grid-cols-3 w-full h-full">
@@ -165,13 +165,13 @@ export default function About() {
   <div className="absolute inset-0 bg-black/40"></div>
 
   {/* Centered Message On Top of Images */}
-  <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
+  <div className="absolute inset-0 flex items-center justify-center px-4 md:px-6 text-center">
     <motion.h2
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="text-white text-3xl md:text-5xl font-extrabold leading-snug max-w-4xl"
+      className="text-white text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold leading-snug max-w-4xl"
     >
       Together, We Transform Waste Into Opportunity Building a Cleaner, Circular Future.
     </motion.h2>

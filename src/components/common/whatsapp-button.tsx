@@ -32,12 +32,12 @@ export function WhatsAppButton({
       onClick={handleClick}
       style={{
         position: 'fixed',
-        bottom: '24px',
-        right: '24px',
+        bottom: '16px',
+        right: '16px',
         zIndex: 9999,
       }}
       className={cn(
-        "w-14 h-14 rounded-full",
+        "w-12 h-12 md:w-14 md:h-14 rounded-full",
         "bg-[#25D366]",
         "shadow-2xl hover:shadow-[0_20px_40px_rgba(34,197,94,0.4)]",
         "flex items-center justify-center",
@@ -53,7 +53,7 @@ export function WhatsAppButton({
       <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#25D366] via-[#20BA5A] to-primary-600 opacity-100 group-hover:opacity-100 transition-opacity duration-300" />
       
       {/* Simple Help Robot Icon */}
-      <div className="relative w-8 h-8 flex items-center justify-center z-10 overflow-visible">
+      <div className="relative w-6 h-6 md:w-8 md:h-8 flex items-center justify-center z-10 overflow-visible">
         <svg
           viewBox="0 -8 56 56"
           className="w-full h-full text-white transition-all duration-300 group-hover:scale-110"

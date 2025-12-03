@@ -101,7 +101,7 @@ export default function Blogs() {
   return (
     <Layout>
       {/* ===== Banner Section ===== */}
-      <section className="relative w-screen h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-screen h-[30vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
         {/* Banner Image */}
         <Image
           src="https://images.unsplash.com/photo-1749805339958-4b1d0f16423d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074"
@@ -116,12 +116,12 @@ export default function Blogs() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="absolute z-10 text-center text-white px-6"
+          className="absolute z-10 text-center text-white px-4 md:px-6"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 drop-shadow-lg">
             Our Blogs
           </h1>
-          <p className="max-w-2xl mx-auto text-lg md:text-xl leading-relaxed text-gray-100">
+          <p className="max-w-2xl mx-auto text-sm md:text-lg lg:text-xl leading-relaxed text-gray-100">
             Explore insightful articles about plastic recycling,
             sustainability, and innovative technologies shaping a greener
             future.
@@ -130,8 +130,8 @@ export default function Blogs() {
       </section>
 
       {/* ===== Blog Cards Section ===== */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20">
+        <div className="grid gap-6 md:gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {articles.map((article) => (
             <motion.div
               key={article.id}
@@ -142,7 +142,7 @@ export default function Blogs() {
               className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
             >
               {/* Image */}
-              <div className="relative w-full h-56">
+              <div className="relative w-full h-40 md:h-56">
                 <Image
                   src={article.image}
                   alt={article.title}
@@ -152,12 +152,12 @@ export default function Blogs() {
               </div>
 
               {/* Content */}
-              <div className="p-6 flex flex-col justify-between">
+              <div className="p-4 md:p-6 flex flex-col justify-between">
                 <div>
-                  <h2 className="text-xl font-semibold text-gray-800 mb-3">
+                  <h2 className="text-base md:text-xl font-semibold text-gray-800 mb-2 md:mb-3">
                     {article.title}
                   </h2>
-                  <p className="text-gray-600 text-sm mb-4">
+                  <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
                     {article.description.length > 130
                       ? article.description.slice(0, 130) + "..."
                       : article.description}

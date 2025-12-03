@@ -64,7 +64,7 @@ export default function Technology() {
         </div>
       </section> */}
 
-      <section className="relative w-screen h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-screen h-[30vh] md:h-[90vh] flex items-center justify-center overflow-hidden">
       {/* === Animated Image Background === */}
       <AnimatePresence>
         <motion.div
@@ -86,12 +86,12 @@ export default function Technology() {
       </AnimatePresence>
 
       {/* === Text Overlay === */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 md:px-12">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-12">
         <motion.span
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-black/80 text-sm tracking-widest uppercase mb-6 border px-4 py-1 rounded-full border-white/30 bg-yellow-400"
+          className="text-black/80 text-xs md:text-sm tracking-widest uppercase mb-4 md:mb-6 border px-3 md:px-4 py-1 rounded-full border-white/30 bg-yellow-400"
         >
           Our Technology
         </motion.span>
@@ -100,7 +100,7 @@ export default function Technology() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
-          className="text-4xl md:text-6xl font-extrabold text-white max-w-5xl leading-tight"
+          className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white max-w-5xl leading-tight"
         >
           Building the Future of Plastic Recycling
         </motion.h1>
@@ -109,7 +109,7 @@ export default function Technology() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4 }}
-          className="mt-8 text-lg md:text-xl text-white/90 max-w-3xl leading-relaxed"
+          className="mt-4 md:mt-8 text-sm md:text-lg lg:text-xl text-white/90 max-w-3xl leading-relaxed"
         >
           At Penaca, we are redefining how plastic recycling is done in India — creating
             a technology-driven recycling system that delivers high-quality recycled
@@ -119,7 +119,7 @@ export default function Technology() {
     </section>
 
       {/* === Main Sections === */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12 py-32 space-y-52">
+      <div className="max-w-7xl mx-auto px-4 md:px-10 lg:px-12 py-16 md:py-32 space-y-24 md:space-y-52">
         {/* Section 1 */}
         <Section
           title="Proprietary hot wash for super-clean plastic flakes"
@@ -134,7 +134,7 @@ export default function Technology() {
         <Section
           title="Scientific and Controlled Recycling"
           subtitle="Technology-backed quality control"
-          image="https://media.istockphoto.com/id/2219207545/photo/water-plant-engineer-inspecting-industrial-pipes-and-holding-clipboard.jpg?s=2048x2048&w=is&k=20&c=VvtVBRSZpmodkVEjxc1R82rH0wwHK0H9eMqWfsLaSkU="
+          image="https://jmcrecycling.com/wp-content/uploads/Machine-Maintenance-for-Recycling-Equipment.webp"
           text={`Penaca’s recycling lines will integrate automated color sorting and intelligent blending algorithms to ensure consistent color and quality across every batch.
 
           We use state-of-the-art extruders enabling gentle melting, fine filtration, and reduced volatile emissions, resulting in durable, safe, and application-ready recycled resins.`}
@@ -165,15 +165,15 @@ export default function Technology() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="space-y-8 text-center md:text-left"
+          className="space-y-4 md:space-y-8 text-center md:text-left"
         >
-          <span className="inline-block border border-yellow-400 px-4 py-1 rounded-full uppercase text-sm tracking-widest text-green-900 bg-yellow-300">
+          <span className="inline-block border border-yellow-400 px-3 md:px-4 py-1 rounded-full uppercase text-xs md:text-sm tracking-widest text-green-900 bg-yellow-300">
             Commitment
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-950">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-950">
             The Penaca Promise
           </h2>
-          <p className="text-gray-800 text-lg leading-relaxed max-w-4xl mx-auto md:mx-0">
+          <p className="text-gray-800 text-sm md:text-lg leading-relaxed max-w-4xl mx-auto md:mx-0">
             While our technology is in development, our commitment to innovation,
             quality, and sustainability remains steadfast. We’re laying the foundation
             for a new standard in recycling clean, consistent, and circular.
@@ -194,30 +194,30 @@ function Section({ title, subtitle, image, text, reverse = false }: any) {
       viewport={{ once: true }}
       className={`flex flex-col ${
         reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-      } items-center gap-20 lg:gap-28`}
+      } items-center gap-10 md:gap-20 lg:gap-28`}
     >
-      <div className="lg:w-1/2 space-y-8">
+      <div className="lg:w-1/2 space-y-4 md:space-y-8">
         {/* Bordered Title Badge */}
-        <span className="inline-block border border-yellow-400 px-4 py-1 rounded-full uppercase text-sm tracking-widest text-green-900 bg-yellow-300">
+        <span className="inline-block border border-yellow-400 px-3 md:px-4 py-1 rounded-full uppercase text-xs md:text-sm tracking-widest text-green-900 bg-yellow-300">
           <div className="flex">
-            <Recycle className="size-5 text-green-800 pr-1"/>
+            <Recycle className="size-4 md:size-5 text-green-800 pr-1"/>
             {subtitle}
             </div>
         </span>
 
         {/* Main Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-blue-950">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-950">
           {title}
         </h2>
 
         {/* Paragraph */}
-        <p className="text-gray-800 text-lg leading-relaxed whitespace-pre-line">
+        <p className="text-gray-800 text-sm md:text-lg leading-relaxed whitespace-pre-line">
           {text}
         </p>
       </div>
 
       {/* Image Section */}
-      <div className="lg:w-1/2 relative w-full h-80 lg:h-[480px] rounded-2xl overflow-hidden shadow-2xl">
+      <div className="lg:w-1/2 relative w-full h-60 md:h-80 lg:h-[480px] rounded-2xl overflow-hidden shadow-2xl">
         <Image src={image} alt={title} fill className="object-cover" />
       </div>
     </motion.section>

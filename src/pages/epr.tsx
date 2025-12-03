@@ -10,7 +10,7 @@ export default function EPR() {
     return (
         <Layout>
             {/* === Banner Section === */}
-            <section className="relative w-screen h-[85vh] flex items-center justify-center overflow-hidden">
+            <section className="relative w-screen h-[30vh] md:h-[85vh] flex items-center justify-center overflow-hidden">
                 <Image
                     src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1600"
                     alt="EPR Banner"
@@ -18,12 +18,12 @@ export default function EPR() {
                     className="object-cover brightness-50"
                     priority
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 md:px-12">
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-12">
                     <motion.span
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
-                        className="text-green-900 text-sm tracking-widest uppercase mb-6 border px-4 py-1 rounded-full border-white/30 bg-yellow-400"
+                        className="text-green-900 text-xs md:text-sm tracking-widest uppercase mb-4 md:mb-6 border px-3 md:px-4 py-1 rounded-full border-white/30 bg-yellow-400"
                     >
                         Extended Producer Responsibility (EPR)
                     </motion.span>
@@ -32,7 +32,7 @@ export default function EPR() {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2 }}
-                        className="text-4xl md:text-6xl font-extrabold text-white max-w-5xl leading-tight"
+                        className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white max-w-5xl leading-tight"
                     >
                         Empowering Circular Solutions with EPR
                     </motion.h1>
@@ -41,7 +41,7 @@ export default function EPR() {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.4 }}
-                        className="mt-8 text-lg md:text-xl text-white/90 max-w-3xl leading-relaxed"
+                        className="mt-4 md:mt-8 text-sm md:text-lg lg:text-xl text-white/90 max-w-3xl leading-relaxed"
                     >
                         We help brands meet their sustainability goals through transparent, traceable,
                         and compliant Extended Producer Responsibility systems.
@@ -50,7 +50,7 @@ export default function EPR() {
             </section>
 
             {/* === Content Section Wrapper === */}
-            <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-14 py-24 space-y-32 text-gray-800">
+            <div className="max-w-7xl mx-auto px-4 md:px-10 lg:px-14 py-12 md:py-24 space-y-16 md:space-y-32 text-gray-800">
 
                 {/* === Intro Section (Left Text + Right Image) === */}
                 <motion.section
@@ -61,26 +61,26 @@ export default function EPR() {
                     className="grid md:grid-cols-2 gap-10 md:gap-16 items-center"
                 >
                     <div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-blue-950 mb-6">
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-950 mb-4 md:mb-6">
                             Extended Producer Responsibility (EPR)
                         </h2>
-                        <p className="text-lg leading-relaxed mb-4">
+                        <p className="text-sm md:text-lg leading-relaxed mb-3 md:mb-4">
                             At <span className="font-semibold text-green-700">Penaca</span>, we empower brands to meet their Extended Producer Responsibility (EPR)
                             goals with ease, transparency, and accountability.
                         </p>
-                        <p className="text-lg leading-relaxed mb-4">
+                        <p className="text-sm md:text-lg leading-relaxed mb-3 md:mb-4">
                             Our end-to-end EPR solutions help businesses in India comply with{" "}
                             <span className="font-medium text-blue-800">CPCB guidelines</span> while driving
                             real impact through responsible plastic waste collection, recycling, and reuse.
                         </p>
-                        <p className="text-lg leading-relaxed">
+                        <p className="text-sm md:text-lg leading-relaxed">
                             With 100% traceable documentation and expert guidance, we simplify EPR compliance so
                             you can focus on building a sustainable future while we ensure your brand stays fully
                             compliant and environmentally responsible.
                         </p>
                     </div>
 
-                    <div className="relative w-full h-[420px] rounded-2xl overflow-hidden shadow-xl">
+                    <div className="relative w-full h-[280px] md:h-[420px] rounded-2xl overflow-hidden shadow-xl">
                         <Image
                             src="https://i0.wp.com/compass.rauias.com/wp-content/uploads/2025/04/image-14.jpeg?w=1400&ssl=1"
                             alt="EPR Sustainability"
@@ -108,7 +108,7 @@ At Penaca, we work closely with brands to help them navigate the complexities of
 At Penaca, we view EPR not just as a regulatory requirement, but as a pathway to build cleaner, more efficient, and future-ready production ecosystems. Here’s why EPR is essential for sustainability:`}
                 />
 
-                <ul className="list-disc list-inside space-y-3 text-lg leading-relaxed text-gray-800">
+                <ul className="list-disc list-inside space-y-2 md:space-y-3 text-sm md:text-lg leading-relaxed text-gray-800">
                     <li><span className="font-semibold text-green-800">Waste Minimization:</span> Encourages producers to reduce waste generation at the source by adopting recyclable and reusable packaging materials.</li>
                     <li><span className="font-semibold text-green-800">Circular Economy Transition:</span> Fosters reuse of resources through efficient recycling systems, reducing dependency on virgin plastics.</li>
                     <li><span className="font-semibold text-green-800">Environmental Accountability:</span> Helps mitigate pollution and lower the carbon footprint of industries.</li>
@@ -137,7 +137,7 @@ At Penaca, our EPR credit framework enables brands to balance their plastic foot
 Key Roles of EPR Plastic Credits:`}
                 />
 
-                <ul className="list-disc list-inside space-y-3 text-lg leading-relaxed text-gray-800">
+                <ul className="list-disc list-inside space-y-2 md:space-y-3 text-sm md:text-lg leading-relaxed text-gray-800">
                     <li><span className="font-semibold text-green-800">Supports Circular Economy: </span> Encourages businesses to take responsibility for the plastic they produce by investing in verified collection and recycling initiatives.</li>
                     <li><span className="font-semibold text-green-800">Improves Recycling Infrastructure:</span> Drives funding toward organized waste collection and recycling systems, reducing reliance on virgin plastics.</li>
                     <li><span className="font-semibold text-green-800">Enhances Industry Accountability: </span> Promotes transparent reporting and traceability, ensuring producers are responsible for their plastic footprint.</li>
@@ -156,7 +156,7 @@ Key Roles of EPR Plastic Credits:`}
 Key Benefits:`}
                 />
 
-                <ul className="list-disc list-inside space-y-3 text-lg leading-relaxed text-gray-800">
+                <ul className="list-disc list-inside space-y-2 md:space-y-3 text-sm md:text-lg leading-relaxed text-gray-800">
                     <li><span className="font-semibold text-green-800">Cost-Effective Compliance: </span>  EPR credits allow companies to meet their waste management responsibilities without the logistical and financial burden of running large-scale recycling operations.</li>
                     <li><span className="font-semibold text-green-800">Sustainability Leadership:</span>  Investing in EPR credits reflects a brand’s proactive approach to environmental stewardship, strengthening its reputation among consumers and stakeholders.</li>
                     <li><span className="font-semibold text-green-800">Access to Global Markets: </span>  Many regions require proof of environmental compliance for trade and operations. EPR credits help businesses meet these standards, facilitating smoother market entry.</li>
@@ -175,7 +175,7 @@ Key Benefits:`}
                     content={``}
                 />
 
-                <ul className="list-disc list-inside space-y-3 text-lg leading-relaxed text-gray-800">
+                <ul className="list-disc list-inside space-y-2 md:space-y-3 text-sm md:text-lg leading-relaxed text-gray-800">
                     <li><span className="font-semibold text-green-800">Identify EPR Obligations: </span> Begin by determining your product or packaging category and calculating your plastic footprint to understand the quantity of plastic waste you are responsible for managing.</li>
                     <li><span className="font-semibold text-green-800">Connect with Certified Recyclers:</span> Partner with authorized and CPCB-registered recyclers or waste processors to ensure that the collected plastic is handled, sorted, and recycled in an environmentally compliant manner.</li>
                     <li><span className="font-semibold text-green-800">Share EPR Requirements: </span> Provide recyclers with details of your EPR obligation, including the quantity, plastic type, and compliance period to help them prepare an appropriate plan.</li>
@@ -189,7 +189,7 @@ Key Benefits:`}
 To streamline this process, the CPCB EPR Portal serves as a centralized digital platform where businesses can:`}
                 />
 
-                <ul className="list-disc list-inside space-y-3 text-lg leading-relaxed text-gray-800">
+                <ul className="list-disc list-inside space-y-2 md:space-y-3 text-sm md:text-lg leading-relaxed text-gray-800">
                     <li>Register as PIBOs (Producers, Importers, and Brand Owners) in accordance with the official EPR guidelines.</li>
                     <li>Declare their plastic waste generation and recycling data as part of their annual compliance requirements.</li>
                     <li>Monitor EPR credit performance and targets through a transparent, traceable reporting system.</li>
@@ -223,7 +223,7 @@ With a focus on innovation and accountability, Penaca’s EPR framework bridges 
 Companies can leverage EPR Plastic Credits to:`}
                 />
 
-                <ul className="list-disc list-inside space-y-3 text-lg leading-relaxed text-gray-800">
+                <ul className="list-disc list-inside space-y-2 md:space-y-3 text-sm md:text-lg leading-relaxed text-gray-800">
                     <li><span className="font-semibold text-green-800">Offset Their Plastic Footprint: </span>  Compensate for the amount of plastic introduced into circulation by supporting verified recycling efforts.</li>
                     <li><span className="font-semibold text-green-800">Achieve Sustainability Objectives:</span> Contribute directly to corporate sustainability and ESG (Environmental, Social, and Governance) goals.</li>
                     <li><span className="font-semibold text-green-800">Strengthen Brand Reputation: </span>  Build trust among environmentally conscious consumers by demonstrating accountability and action.</li>
@@ -251,12 +251,12 @@ function Section({ title, content }: { title: string; content: string }) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
         >
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-950 border-l-8 border-yellow-400 pl-4">
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-blue-950 border-l-4 md:border-l-8 border-yellow-400 pl-3 md:pl-4">
                 {title}
             </h2>
-            <p className="text-lg leading-relaxed whitespace-pre-line text-gray-800">
+            <p className="text-sm md:text-lg leading-relaxed whitespace-pre-line text-gray-800">
                 {content}
             </p>
         </motion.section>
@@ -322,29 +322,29 @@ function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-5xl mx-auto px-6 md:px-10 lg:px-12 py-24"
+            className="max-w-5xl mx-auto px-4 md:px-10 lg:px-12 py-12 md:py-24"
         >
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-950 mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-blue-950 mb-8 md:mb-12">
                 FAQs
             </h2>
 
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
                 {faqs.map((faq, i) => (
                     <div
                         key={i}
-                        className="border border-yellow-300 rounded-2xl shadow-sm overflow-hidden bg-white"
+                        className="border border-yellow-300 rounded-xl md:rounded-2xl shadow-sm overflow-hidden bg-white"
                     >
                         <button
                             onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                            className="w-full flex justify-between items-center px-6 py-5 text-left"
+                            className="w-full flex justify-between items-center px-4 md:px-6 py-4 md:py-5 text-left"
                         >
-                            <span className="text-lg font-medium text-gray-900">
+                            <span className="text-sm md:text-lg font-medium text-gray-900 pr-2">
                                 {faq.question}
                             </span>
                             {openIndex === i ? (
-                                <ChevronUp className="text-green-800 size-6" />
+                                <ChevronUp className="text-green-800 size-5 md:size-6 flex-shrink-0" />
                             ) : (
-                                <ChevronDown className="text-green-800 size-6" />
+                                <ChevronDown className="text-green-800 size-5 md:size-6 flex-shrink-0" />
                             )}
                         </button>
 
@@ -356,9 +356,9 @@ function FAQSection() {
                                     : { height: 0, opacity: 0 }
                             }
                             transition={{ duration: 0.4 }}
-                            className="overflow-hidden px-6"
+                            className="overflow-hidden px-4 md:px-6"
                         >
-                            <p className="pb-6 text-gray-800 whitespace-pre-line text-base leading-relaxed">
+                            <p className="pb-4 md:pb-6 text-gray-800 whitespace-pre-line text-xs md:text-base leading-relaxed">
                                 {faq.answer}
                             </p>
                         </motion.div>

@@ -25,7 +25,7 @@ export function HeroSection() {
   };
 
   return (
-    <section ref={ref} className="relative min-h-[85vh] md:min-h-screen w-full overflow-hidden flex items-center justify-center">
+    <section ref={ref} className="relative min-h-[50vh] md:min-h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Video background */}
       <div className="absolute inset-0 z-0">
         <video
@@ -42,8 +42,8 @@ export function HeroSection() {
       </div>
 
       {/* Hero content */}
-      <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white pt-16 md:pt-0">
-        <div className={cn("space-y-4 md:space-y-6", isInView ? 'animate-slide-up opacity-100' : 'opacity-0')}>
+      <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white pt-12 md:pt-0">
+        <div className={cn("space-y-3 md:space-y-6", isInView ? 'animate-slide-up opacity-100' : 'opacity-0')}>
           <div className="inline-flex items-center gap-1.5 md:gap-2 rounded-full bg-white/10 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-semibold text-white animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <Recycle className="size-3.5 md:size-4" />
             Pioneering Circular Economy in India
@@ -58,13 +58,13 @@ export function HeroSection() {
             We collect scrap materials from suppliers across India and recycle them into high-quality plastic granules, creating a transparent and sustainable circular economy.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center pt-2 md:pt-4 animate-fade-in px-4 sm:px-0" style={{ animationDelay: '0.7s' }}>
-            <Button asChild size="lg">
+          <div className="flex flex-row gap-2 md:gap-4 justify-center pt-2 md:pt-4 animate-fade-in px-4 sm:px-0" style={{ animationDelay: '0.7s' }}>
+            <Button asChild size="lg" className="h-10 px-4 py-2 text-xs md:h-[56px] md:px-8 md:py-4 md:text-lg">
               <Link href="/sell-scrap">
-                Sell Your Scrap <ArrowRight className="ml-2" />
+                Sell Your Scrap <ArrowRight className="ml-1 md:ml-2 size-3 md:size-5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/10 hover:text-white">
+            <Button asChild size="lg" variant="outline" className="h-10 px-4 py-2 text-xs md:h-[56px] md:px-8 md:py-4 md:text-lg text-white border-white hover:bg-white/10 hover:text-white">
               <Link href="/buy-scrap">
                 Buy Recycled Materials
               </Link>

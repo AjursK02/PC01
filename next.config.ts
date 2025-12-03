@@ -54,6 +54,10 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'jiantai.io', port: '', pathname: '/**' },
       { protocol: 'https', hostname: 'thumbs.dreamstime.com', port: '', pathname: '/**' },
       { protocol: 'https', hostname: 'cached.imagescaler.hbpl.co.uk', port: '', pathname: '/**' },
+      { protocol: 'https', hostname: 'unitedpipeline.com', port: '', pathname: '/**' },
+      { protocol: 'https', hostname: 'mac-mess.cn', port: '', pathname: '/**' },
+      { protocol: 'https', hostname: 'cdn.shopify.com', port: '', pathname: '/**' },
+      { protocol: 'https', hostname: 'jmcrecycling.com', port: '', pathname: '/**' },
     ],
   },
 };

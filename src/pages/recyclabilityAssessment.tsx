@@ -8,7 +8,7 @@ export default function RecyclabilityAssessment() {
   return (
     <Layout>
       {/* === Banner Section === */}
-      <section className="relative w-screen h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-screen h-[30vh] md:h-[90vh] flex items-center justify-center overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1610093703375-6d8fd641294b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
           alt="Recyclability Assessment Banner"
@@ -16,12 +16,12 @@ export default function RecyclabilityAssessment() {
           className="object-cover brightness-50"
           priority
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 md:px-12">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-12">
           <motion.span
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-black/80 text-sm tracking-widest uppercase mb-6 border px-4 py-1 rounded-full border-white/30 bg-yellow-400"
+            className="text-black/80 text-xs md:text-sm tracking-widest uppercase mb-4 md:mb-6 border px-3 md:px-4 py-1 rounded-full border-white/30 bg-yellow-400"
           >
             Recyclability Assessment
           </motion.span>
@@ -29,7 +29,7 @@ export default function RecyclabilityAssessment() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2 }}
-            className="text-4xl md:text-6xl font-extrabold text-white max-w-5xl leading-tight"
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white max-w-5xl leading-tight"
           >
             Assessing Plastic Packaging for a Circular Future
           </motion.h1>
@@ -37,7 +37,7 @@ export default function RecyclabilityAssessment() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.4 }}
-            className="mt-8 text-lg md:text-xl text-white/90 max-w-3xl leading-relaxed"
+            className="mt-4 md:mt-8 text-sm md:text-lg lg:text-xl text-white/90 max-w-3xl leading-relaxed"
           >
             At Penaca, we combine technology, data, and field expertise to redefine how
             recyclability is assessed in India — building measurable impact across the
@@ -47,7 +47,7 @@ export default function RecyclabilityAssessment() {
       </section>
 
       {/* === Content Sections === */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12 py-32 space-y-52">
+      <div className="max-w-7xl mx-auto px-4 md:px-10 lg:px-12 py-16 md:py-32 space-y-24 md:space-y-52">
         {/* Section 1 */}
         <Section
           title="Holistic Value Chain Understanding"
@@ -116,29 +116,29 @@ function Section({
       viewport={{ once: true }}
       className={`flex flex-col ${
         reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-      } items-center gap-20 lg:gap-28`}
+      } items-center gap-10 md:gap-20 lg:gap-28`}
     >
       {/* Text Content */}
-      <div className="lg:w-1/2 space-y-8">
+      <div className="lg:w-1/2 space-y-4 md:space-y-8">
         {/* Subtitle */}
-        <span className="inline-block border border-yellow-400 px-4 py-1 rounded-full uppercase text-sm tracking-widest text-green-900 bg-yellow-300">
+        <span className="inline-block border border-yellow-400 px-3 md:px-4 py-1 rounded-full uppercase text-xs md:text-sm tracking-widest text-green-900 bg-yellow-300">
           <div className="flex items-center">
-            <Recycle className="size-5 text-green-800 mr-2" />
+            <Recycle className="size-4 md:size-5 text-green-800 mr-2" />
             {subtitle}
           </div>
         </span>
 
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-blue-950">{title}</h2>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-950">{title}</h2>
 
         {/* Paragraph */}
-        <p className="text-gray-800 text-lg leading-relaxed whitespace-pre-line">
+        <p className="text-gray-800 text-sm md:text-lg leading-relaxed whitespace-pre-line">
           {text}
         </p>
       </div>
 
       {/* Image */}
-      <div className="lg:w-1/2 relative w-full h-80 lg:h-[480px] rounded-2xl overflow-hidden shadow-2xl">
+      <div className="lg:w-1/2 relative w-full h-60 md:h-80 lg:h-[480px] rounded-2xl overflow-hidden shadow-2xl">
         <Image src={image} alt={title} fill className="object-cover" />
       </div>
     </motion.section>
