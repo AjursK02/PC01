@@ -103,6 +103,93 @@ Copy **everything** including:
 
 ---
 
+```
+Depoly.yml With nginx.conf
+
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Build and Deploy
+        run: |
+          # Build application
+          npm ci
+          npm run build
+          
+          # Create deployment package
+          tar -czf deploy.tar.gz .next public node_modules package.json package-lock.json next.config.ts tsconfig.json tailwind.config.ts postcss.config.mjs src ecosystem.config.js nginx.conf
+          
+          # Configure SSH
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+          
+          # Transfer files
+          scp -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no deploy.tar.gz ecosystem.config.js nginx.conf ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/tmp/
+          
+          # Deploy on server
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+            set -e
+            APP_DIR="/home/${{ secrets.EC2_USER }}/app"
+            CURRENT_DIR="$APP_DIR/current"
+            
+            # Create directories
+            mkdir -p "$APP_DIR" "$CURRENT_DIR/logs"
+            
+            # Stop PM2 if running
+            pm2 stop penaca-app 2>/dev/null || true
+            pm2 delete penaca-app 2>/dev/null || true
+            
+            # Remove old deployment
+            rm -rf "$CURRENT_DIR"/*
+            
+            # Extract new deployment
+            tar -xzf /tmp/deploy.tar.gz -C "$CURRENT_DIR/"
+            cp /tmp/ecosystem.config.js "$CURRENT_DIR/"
+            rm /tmp/deploy.tar.gz /tmp/ecosystem.config.js
+            
+            # Update Nginx configuration
+            sudo cp /tmp/nginx.conf /etc/nginx/sites-available/penaca
+            sudo ln -sf /etc/nginx/sites-available/penaca /etc/nginx/sites-enabled/penaca
+            sudo rm -f /etc/nginx/sites-enabled/default
+            sudo nginx -t && sudo systemctl reload nginx
+            rm /tmp/nginx.conf
+            
+            # Install dependencies and start
+            cd "$CURRENT_DIR"
+            npm ci --production
+            pm2 start ecosystem.config.js
+            pm2 save
+            
+            echo "Deployment successful! App restarted via PM2"
+          EOF
+          
+          # Cleanup
+          rm -f deploy.tar.gz ~/.ssh/deploy_key
+
+```
+
 ## Step 4: Deploy
 
 Push to the `main` or `master` branch:
@@ -372,5 +459,88 @@ You should see a padlock icon ✅ - no browser warnings!
 **Note:** If you don't have a domain, continue using HTTP at `http://your-ec2-ip`.
 
 ---
+
+
+```
+Depoly.yml Without nginx.conf
+
+
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Build and Deploy
+        run: |
+          # Build application
+          npm ci
+          npm run build
+          
+          # Create deployment package
+          tar -czf deploy.tar.gz .next public node_modules package.json package-lock.json next.config.ts tsconfig.json tailwind.config.ts postcss.config.mjs src ecosystem.config.js
+          
+          # Configure SSH
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+          
+          # Transfer files
+          scp -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no deploy.tar.gz ecosystem.config.js ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/tmp/
+          
+          # Deploy on server
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+            set -e
+            APP_DIR="/home/${{ secrets.EC2_USER }}/app"
+            CURRENT_DIR="$APP_DIR/current"
+            
+            # Create directories
+            mkdir -p "$APP_DIR" "$CURRENT_DIR/logs"
+            
+            # Stop PM2 if running
+            pm2 stop penaca-app 2>/dev/null || true
+            pm2 delete penaca-app 2>/dev/null || true
+            
+            # Remove old deployment
+            rm -rf "$CURRENT_DIR"/*
+            
+            # Extract new deployment
+            tar -xzf /tmp/deploy.tar.gz -C "$CURRENT_DIR/"
+            cp /tmp/ecosystem.config.js "$CURRENT_DIR/"
+            rm /tmp/deploy.tar.gz /tmp/ecosystem.config.js
+            
+            # Install dependencies and start
+            cd "$CURRENT_DIR"
+            npm ci --production
+            pm2 start ecosystem.config.js
+            pm2 save
+            
+            echo "Deployment successful! App restarted via PM2"
+          EOF
+          
+          # Cleanup
+          rm -f deploy.tar.gz ~/.ssh/deploy_key
+
+```
+
 
 **That's it! Your deployment pipeline is ready. Just push to `main` and it will deploy automatically! 🚀**
