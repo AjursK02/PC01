@@ -71,7 +71,7 @@ export function MobileNav({ isOpen, setIsOpen, navItems }: MobileNavProps) {
             )}
           </nav>
           <div className="mt-6 flex flex-col gap-3">
-            <Button asChild variant="outline" className="w-full h-10 text-sm border-primary text-primary hover:bg-primary/10">
+            {/* <Button asChild variant="outline" className="w-full h-10 text-sm border-primary text-primary hover:bg-primary/10">
               <Link href="/sell-scrap" onClick={() => setIsOpen(false)}>
                 Sell Scrap
               </Link>
@@ -80,6 +80,16 @@ export function MobileNav({ isOpen, setIsOpen, navItems }: MobileNavProps) {
               <Link href="/buy-scrap" onClick={() => setIsOpen(false)}>
                 Buy Scrap
               </Link>
+            </Button> */}
+            <Button asChild variant="outline" className="w-full h-10 text-sm border-primary text-primary hover:bg-primary/10">
+              <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                Sell Scrap
+              </a>
+            </Button>
+            <Button asChild className="w-full h-10 text-sm">
+              <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                Buy Scrap
+              </a>
             </Button>
           </div>
         </div>

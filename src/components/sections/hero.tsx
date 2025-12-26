@@ -59,7 +59,7 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-row gap-2 md:gap-4 justify-center pt-2 md:pt-4 animate-fade-in px-4 sm:px-0" style={{ animationDelay: '0.7s' }}>
-            <Button asChild size="lg" className="h-10 px-4 py-2 text-xs md:h-[56px] md:px-8 md:py-4 md:text-lg">
+            {/* <Button asChild size="lg" className="h-10 px-4 py-2 text-xs md:h-[56px] md:px-8 md:py-4 md:text-lg">
               <Link href="/sell-scrap">
                 Sell Your Scrap <ArrowRight className="ml-1 md:ml-2 size-3 md:size-5" />
               </Link>
@@ -68,6 +68,16 @@ export function HeroSection() {
               <Link href="/buy-scrap">
                 Buy Recycled Materials
               </Link>
+            </Button> */}
+            <Button asChild size="lg" className="h-10 px-4 py-2 text-xs md:h-[56px] md:px-8 md:py-4 md:text-lg">
+              <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer">
+                Sell Your Scrap <ArrowRight className="ml-1 md:ml-2 size-3 md:size-5" />
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="h-10 px-4 py-2 text-xs md:h-[56px] md:px-8 md:py-4 md:text-lg text-white border-white hover:bg-white/10 hover:text-white">
+              <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer">
+                Buy Recycled Materials
+              </a>
             </Button>
           </div>
         </div>

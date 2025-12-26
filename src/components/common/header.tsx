@@ -102,11 +102,17 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden lg:flex items-center gap-4">
-          <Button asChild variant="outline">
+          {/* <Button asChild variant="outline">
             <Link href="/sell-scrap">Sell Scrap</Link>
           </Button>
           <Button asChild>
             <Link href="/buy-scrap">Buy Scrap</Link>
+          </Button> */}
+          <Button asChild variant="outline">
+            <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer">Sell Scrap</a>
+          </Button>
+          <Button asChild>
+            <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer">Buy Scrap</a>
           </Button>
         </div>
         <div className="lg:hidden">
