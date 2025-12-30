@@ -80,7 +80,7 @@ export function MobileNav({ isOpen, setIsOpen, navItems }: MobileNavProps) {
               <Link href="/buy-scrap" onClick={() => setIsOpen(false)}>
                 Buy Scrap
               </Link>
-            </Button> */}
+            </Button>
             <Button asChild variant="outline" className="w-full h-10 text-sm border-primary text-primary hover:bg-primary/10">
               <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                 Sell Scrap
@@ -89,6 +89,11 @@ export function MobileNav({ isOpen, setIsOpen, navItems }: MobileNavProps) {
             <Button asChild className="w-full h-10 text-sm">
               <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                 Buy Scrap
+              </a>
+            </Button> */}
+            <Button asChild className="w-full h-10 text-sm">
+              <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                PlastiXchange
               </a>
             </Button>
           </div>

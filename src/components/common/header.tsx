@@ -45,6 +45,7 @@ const navItems = [
       { name: 'Blogs', href: '/blogs' },
     ]
   },
+  { name: 'Careers', href: '/careers' },
   { name: 'Contact', href: '/#contact' },
 ];
 
@@ -107,12 +108,15 @@ export function Header() {
           </Button>
           <Button asChild>
             <Link href="/buy-scrap">Buy Scrap</Link>
-          </Button> */}
+          </Button>
           <Button asChild variant="outline">
             <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer">Sell Scrap</a>
           </Button>
           <Button asChild>
             <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer">Buy Scrap</a>
+          </Button> */}
+          <Button asChild>
+            <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer">PlastiXchange</a>
           </Button>
         </div>
         <div className="lg:hidden">
