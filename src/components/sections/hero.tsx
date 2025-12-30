@@ -44,9 +44,9 @@ export function HeroSection() {
       {/* Hero content */}
       <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white pt-12 md:pt-0">
         <div className={cn("space-y-3 md:space-y-6", isInView ? 'animate-slide-up opacity-100' : 'opacity-0')}>
-          <div className="inline-flex items-center gap-1.5 md:gap-2 rounded-full bg-white/10 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-semibold text-white animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <Recycle className="size-3.5 md:size-4" />
-            Pioneering Circular Economy in India
+          <div className="inline-flex items-center gap-1.5 md:gap-2 rounded-full bg-white/10 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 text-[10px] sm:text-xs md:text-sm font-semibold text-white animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <Recycle className="size-3 sm:size-3.5 md:size-4 flex-shrink-0" />
+            <span className="whitespace-nowrap">Pioneering Circular Economy in India</span>
           </div>
 
           <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter animate-fade-in" style={{ animationDelay: '0.3s' }}>
@@ -68,7 +68,7 @@ export function HeroSection() {
               <Link href="/buy-scrap">
                 Buy Recycled Materials
               </Link>
-            </Button> */}
+            </Button>
             <Button asChild size="lg" className="h-10 px-4 py-2 text-xs md:h-[56px] md:px-8 md:py-4 md:text-lg">
               <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer">
                 Sell Your Scrap <ArrowRight className="ml-1 md:ml-2 size-3 md:size-5" />
@@ -77,6 +77,11 @@ export function HeroSection() {
             <Button asChild size="lg" variant="outline" className="h-10 px-4 py-2 text-xs md:h-[56px] md:px-8 md:py-4 md:text-lg text-white border-white hover:bg-white/10 hover:text-white">
               <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer">
                 Buy Recycled Materials
+              </a>
+            </Button> */}
+            <Button asChild size="lg" className="h-10 px-4 py-2 text-xs md:h-[56px] md:px-8 md:py-4 md:text-lg">
+              <a href="https://plastixchange.penaca.in/" target="_blank" rel="noopener noreferrer">
+                PlastiXchange <ArrowRight className="ml-1 md:ml-2 size-3 md:size-5" />
               </a>
             </Button>
           </div>
